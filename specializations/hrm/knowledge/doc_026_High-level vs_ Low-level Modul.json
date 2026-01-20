@@ -1,0 +1,11 @@
+{
+  "title": "High-level vs. Low-level Module Interaction in HRM Systems",
+  "source": "Research summary: 26. high-level vs low-level module interaction in HRM",
+  "design_insight": "High-level modules handle overarching HR functions, while low-level modules manage specific tasks. Effective HRM systems balance modular independence and integration to ensure cohesive data flow and user experience.",
+  "experimental_trigger_patterns": "Apply this approach when modular independence and cohesive integration are needed to maintain data consistency and scalability in HR functions.",
+  "background": "Developed to enhance HRM systems' efficiency by ensuring seamless integration of high-level strategic and low-level operational tasks, while supporting scalability and data integrity.",
+  "algorithmic_innovation": "Leverage Service-Oriented Architecture (SOA) and APIs/microservices to allow flexible, independent deployment and communication between modules, integrated with machine learning for predictive insights.",
+  "implementation_guidance": "Define clear interfaces between modules, implement data synchronization protocols, and provide customization options. Ensure role-based access and continuous feedback loops for informed decision-making.",
+  "design_ai_instructions": "An AI system should facilitate modular design with seamless integration, track data consistency, support scalable modifications, and incorporate clear interface definitions. Avoid overcomplicating module interactions or neglecting data integrity.",
+  "relevance_score": 0.9
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Model Efficiency Enhancements",
+  "source": "Research summary: 25. computational efficiency in Hierarchical Reasoning Models",
+  "design_insight": "Introduce computational efficiency in Hierarchical Reasoning Models (HRMs) through modular architecture, advanced optimization, parallel computing, transfer learning, sparsity, and cost-sensitive algorithms.",
+  "experimental_trigger_patterns": "Apply when models exhibit slow convergence, high computational overhead, or inadequate scalability in multi-step reasoning tasks.",
+  "background": "HRMs are developed to manage complex tasks requiring decomposable multi-step reasoning. Enhancing their computational efficiency is vital for scalability and performance in real-world applications.",
+  "algorithmic_innovation": "Utilize modular design, gradient-based optimization, pruning, attention mechanisms, sparse computation, transfer learning, and distributed training to streamline computations in HRMs.",
+  "implementation_guidance": "Incorporate advanced gradient methods like Adam, modular and shared components, data and model parallelism, sparse representations, and resource-aware loss functions for optimal performance.",
+  "design_ai_instructions": "Dynamically adjust learning rates, leverage pre-trained components, apply conditional path computations, conduct ablation studies to identify bottlenecks, and avoid overfitting to synthetic data while maintaining sequential task decomposition.",
+  "relevance_score": 0.9
+}

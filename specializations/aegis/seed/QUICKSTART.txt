@@ -1,0 +1,54 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║                         QUICK START GUIDE                            ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+Your AEGIS installation is configured for:
+  • Device: CPU
+  • Model: 128-dimensional with 2+2 layers
+  • Batch size: 4
+  • Population: 5 architectures
+
+OPTION 1: Run Interactive Demo
+────────────────────────────────
+  python demo.py
+
+OPTION 2: Start Interactive Session
+────────────────────────────────────
+  python aegis_autonomous.py
+
+OPTION 3: Use Python API
+─────────────────────────
+  from aegis_autonomous import AutonomousAEGIS, AEGISConfig
+  from core.auto_configure import AutoConfigurator
+
+  # Load optimized config
+  config = AutoConfigurator.load_config("aegis_config.json")
+
+  # Create AEGIS
+  aegis = AutonomousAEGIS(config)
+
+  # Start interactive session
+  aegis.interactive_session()
+
+  # Or run autonomous operation
+  aegis.start_autonomous_operation(max_iterations=100)
+
+IMPORTANT NOTES:
+────────────────
+  • All architecture changes require your approval
+  • System will automatically freeze if anomalies detected
+  • You can emergency stop at any time: aegis.emergency_stop("reason")
+  • Configuration file: aegis_config.json
+
+DOCUMENTATION:
+──────────────
+  • README.md - Overview and introduction
+  • SETUP.md - Detailed setup instructions
+  • EXAMPLES.md - Usage examples
+  • SAFETY.md - Safety features and protocols
+
+For help, visit: https://github.com/your-repo/aegis/issues
+
+╚══════════════════════════════════════════════════════════════════════╝
+    

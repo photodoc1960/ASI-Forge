@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning in Adaptive Intelligence",
+  "source": "Research summary: 12. \"hierarchical reasoning in adaptive intelligence\"",
+  "design_insight": "Hierarchical reasoning structures improve AI learning efficiency, scalability, and interpretability by breaking complex tasks into manageable sub-tasks and leveraging modular, scalable architectures.",
+  "experimental_trigger_patterns": "Apply hierarchical reasoning when performance improvements are needed in module-based scalability, decision-making efficiency, and interpretability of complex tasks.",
+  "background": "Inspired by cognitive psychology and neuroscience principles that showcase hierarchical processing as fundamental to human cognition, this approach enhances learning, transfer, and decision processes in AI by structuring tasks hierarchically.",
+  "algorithmic_innovation": "Hierarchical Reinforcement Learning (HRL) and Deep Hierarchical Networks leverage tiered policy structures, nested subroutines, and layered abstractions to enhance decision-making, scalability, and efficient resource use in AI systems.",
+  "implementation_guidance": "Utilize frameworks like Hierarchical Bayesian Models and Graphical Models for probabilistic task decomposition; balance depth and breadth in hierarchy design for performance; incorporate feedback loops and base structures on data patterns for adaptability.",
+  "design_ai_instructions": "Implement AI systems with modular hierarchy allowing easy reconfiguration. Use data-driven structures to reflect task nature, integrate symbolic reasoning for logic-based tasks, and ensure flexibility to adapt hierarchy levels without system overhauls.",
+  "relevance_score": 0.95
+}

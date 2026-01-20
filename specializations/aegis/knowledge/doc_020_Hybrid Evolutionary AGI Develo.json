@@ -1,0 +1,11 @@
+{
+  "title": "Hybrid Evolutionary AGI Development Strategies",
+  "source": "Research summary: 20. \"recent developments in supervised evolutionary AGI\"",
+  "design_insight": "Integration of evolutionary algorithms with supervised learning models enhances adaptability and generalization in AGI systems.",
+  "experimental_trigger_patterns": "Apply when encountering overfitting issues, rigidity in model adaptation across domains, or when requiring automated architecture optimization.",
+  "background": "Combining genetic algorithms and supervised learning addresses limitations of both, leveraging neuroevolution to create flexible architectures akin to human cognitive processes.",
+  "algorithmic_innovation": "Evolutionary approaches like NEAT and neuroevolution optimize neural network architectures and parameters, supporting better transfer learning and cross-domain adaptability.",
+  "implementation_guidance": "Use NEAT for evolving architectures; employ CMA-ES for hyperparameter tuning; start with simple models and incrementally introduce complexity. Consider cloud resources for parallel processes.",
+  "design_ai_instructions": "Focus on evolving models that balance complexity and computational efficiency. Monitor for overfitting and adapt fitness functions to avoid premature convergence.",
+  "relevance_score": 0.9
+}

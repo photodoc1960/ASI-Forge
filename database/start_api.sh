@@ -1,12 +1,20 @@
 #!/bin/bash
 # MongoDB API Service Startup Script
+# Usage: ./start_api.sh [collection_name]
+# Example: ./start_api.sh aegis_elements
 set -e
+
+# Collection name (first argument or default)
+COLLECTION_NAME="${1:-data_elements}"
+export COLLECTION_NAME
+
 # Color Definitions
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
+
 print_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
 }
@@ -74,13 +82,14 @@ start_api() {
 main() {
     echo "MongoDB API Service Startup Script"
     echo "========================"
-    
+    print_info "Collection: $COLLECTION_NAME"
+
     # Check MongoDB service
     check_mongodb
-    
+
     # Check Python dependencies
     check_dependencies
-    
+
     # Start API service
     start_api
 }

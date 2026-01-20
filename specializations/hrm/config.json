@@ -1,0 +1,237 @@
+{
+  "id": "100acac6-3985-4bf1-a533-64c10f336f68",
+  "name": "hrm",
+  "display_name": "HRM",
+  "description": "the Hierarchical Reasoning Model (HRM), a novel recurrent architecture that attains significant computational depth while maintaining both training stability and efficiency. HRM executes sequential reasoning tasks in a single forward pass without explicit supervision of the intermediate process, through two interdependent recurrent modules: a high-level module responsible for slow, abstract planning, and a low-level module handling rapid, detailed computations.",
+  "created_at": "2026-01-20T21:18:32.184127",
+  "updated_at": "2026-01-20T21:18:32.352744",
+  "init_mode": "seeded",
+  "seed_codebase_path": "/mnt/d/HRM",
+  "architecture": {
+    "base_class_name": "convert_single_arc_puzzle",
+    "artifact_type": "code",
+    "standard_parameters": [],
+    "interface_signature": "Component: function",
+    "required_decorators": [],
+    "file_extension": ".py",
+    "code_style_guidelines": ""
+  },
+  "evaluation": {
+    "baseline_models": [
+      {
+        "name": "baseline_enhanced_data_augmentation",
+        "description": "Baseline for Enhanced Data Augmentation",
+        "score": 50.0,
+        "metrics": {
+          "Accuracy metrics improvement": 0.5,
+          "Generalization tests": 0.5
+        },
+        "training_curve": null
+      },
+      {
+        "name": "baseline_distributed_training_optimization",
+        "description": "Baseline for Distributed Training Optimization",
+        "score": 50.0,
+        "metrics": {
+          "Speedup in training time": 0.5,
+          "Convergence rate analysis": 0.5
+        },
+        "training_curve": null
+      }
+    ],
+    "benchmarks": [
+      "Speedup in training time",
+      "Accuracy metrics improvement",
+      "Convergence rate analysis",
+      "Generalization tests"
+    ],
+    "primary_metric": "score",
+    "scoring_weights": {
+      "performance": 0.4,
+      "innovation": 0.3,
+      "efficiency": 0.3
+    },
+    "result_format": "csv",
+    "loss_column": "loss",
+    "metric_columns": [
+      "Speedup in training time",
+      "Accuracy metrics improvement",
+      "Convergence rate analysis",
+      "Generalization tests"
+    ],
+    "higher_is_better": true,
+    "normalization_baseline": 0.0
+  },
+  "constraints": {
+    "complexity_requirement": "This task entails defining rigorous validation constraints for evolving an advanced AI codebase aimed at optimizing hierarchical reasoning models.",
+    "strict_constraints": [
+      {
+        "name": "Preserved Input-Output Mapping",
+        "description": "Ensure that the 'convert_single_arc_puzzle' function maintains its current input-output behavior to avoid breaking existing functionality.",
+        "severity": "strict",
+        "validation_prompt": "Run all unit tests ensuring the same input yields the same output as prior to evolution.",
+        "fix_guidance": "Review modifications for unintended changes to input-output logic and adjust accordingly.",
+        "examples": null
+      },
+      {
+        "name": "Model Convergence Maintenance",
+        "description": "Guarantee that the 'CastedSparseEmbeddingSignSGD_Distributed' maintains convergence properties to ensure training stability.",
+        "severity": "strict",
+        "validation_prompt": "Perform convergence tests under varied conditions to confirm stable training paths.",
+        "fix_guidance": "Check for changes in model parameters that may affect convergence and rectify.",
+        "examples": null
+      },
+      {
+        "name": "Edge Case Handling",
+        "description": "Ensure the 'convert_single_arc_puzzle' handles all identified edge cases effectively.",
+        "severity": "strict",
+        "validation_prompt": "Test using known edge cases to ensure functionality remains correct.",
+        "fix_guidance": "Expand edge case tests and correct any logic that fails during testing.",
+        "examples": null
+      }
+    ],
+    "critical_constraints": [
+      {
+        "name": "Compatibility with Future Models",
+        "description": "The 'CastedSparseEmbeddingSignSGD_Distributed' must remain compatible with potential future model architectures.",
+        "severity": "critical",
+        "validation_prompt": "Cross-validate with current and draft versions of future models.",
+        "fix_guidance": "Adjust interfaces and interoperability layers to meet consistency requirements.",
+        "examples": null
+      },
+      {
+        "name": "Generalization Tests",
+        "description": "Enhanced data augmentation should positively impact generalization without performance degrading in non-augmented scenarios.",
+        "severity": "critical",
+        "validation_prompt": "Perform generalization tests across diverse datasets.",
+        "fix_guidance": "Refine augmentation strategies to enhance their impact without causing overfitting.",
+        "examples": null
+      },
+      {
+        "name": "Parallel Synchronization",
+        "description": "Ensure efficient parallel synchronization in distributed training to prevent bottlenecks.",
+        "severity": "critical",
+        "validation_prompt": "Evaluate parallel processing overheads and identify synchronization issues.",
+        "fix_guidance": "Optimize inter-process communication mechanisms.",
+        "examples": null
+      }
+    ],
+    "flexible_constraints": [
+      {
+        "name": "Code Style Consistency",
+        "description": "Maintain consistent code style and adherence to established coding standards.",
+        "severity": "flexible",
+        "validation_prompt": "Conduct code reviews focusing on style elements.",
+        "fix_guidance": "Apply automated linters and manual reviews to adjust style elements.",
+        "examples": null
+      },
+      {
+        "name": "Documentation Updates",
+        "description": "Ensure all changes are reflected in the documentation to assist future developers.",
+        "severity": "flexible",
+        "validation_prompt": "Check documentation for consistency with the newly evolved code.",
+        "fix_guidance": "Update documentation along with code changes to avoid discrepancies.",
+        "examples": null
+      }
+    ],
+    "preservation_rules": [
+      "Conversion Logic Stability",
+      "Stable API Interfaces",
+      "Dependency Stability"
+    ]
+  },
+  "prompts": {
+    "_stored_separately": true
+  },
+  "knowledge": {
+    "corpus_path": "/mnt/d/ASI-Arch/specializations/hrm/knowledge",
+    "index_name": "hrm_knowledge",
+    "embedding_model": "intfloat/e5-base-v2",
+    "default_search_queries": [
+      "1. foundational papers on Hierarchical Reasoning Model in neural networks",
+      "2. key techniques in recurrent neural networks for hierarchical planning",
+      "3. Hierarchical Reasoning Model for sequential decision making",
+      "4. state-of-the-art methods in recurrent neural architectures",
+      "5. benchmarks for evaluating Hierarchical Reasoning Models",
+      "6. implementation best practices for Hierarchical Reasoning Model",
+      "7. recent breakthroughs in hierarchical neural network architectures",
+      "8. Hierarchical Reasoning Model in artificial intelligence",
+      "9. advanced techniques in hierarchical sequential reasoning",
+      "10. high-level planning in Hierarchical Reasoning Model research papers",
+      "11. low-level computation modules in hierarchical neural networks",
+      "12. reviews of Hierarchical Reasoning Models in AI",
+      "13. comprehensive surveys on recurrent neural networks",
+      "14. impact of Hierarchical Reasoning Models on computational depth",
+      "15. training stability in Hierarchical Reasoning Models",
+      "16. efficiency in hierarchical recurrent neural networks",
+      "17. abstraction in Hierarchical Reasoning Model architectures",
+      "18. detailed computation in recurrent hierarchical models",
+      "19. unsupervised intermediate process in neural networks",
+      "20. interdependent recurrent modules in AI models",
+      "21. impact of HRM on deep learning performance",
+      "22. comparison of Hierarchical Reasoning Models and CNNs",
+      "23. Hierarchical Reasoning Model applications across industries",
+      "24. Scalability of Hierarchical Reasoning Models in AI",
+      "25. computational efficiency in Hierarchical Reasoning Models",
+      "26. high-level vs low-level module interaction in HRM",
+      "27. papers on sequential tasks using Hierarchical Reasoning Models",
+      "28. overcoming challenges in hierarchical decision making",
+      "29. improving HRM training algorithms",
+      "30. integrating Hierarchical Reasoning Models with other AI technologies",
+      "31. theoretical frameworks supporting HRM architectures",
+      "32. optimization techniques for Hierarchical Reasoning Models",
+      "33. advances in recurrent architectures with Hierarchical Models",
+      "34. role of HRM in enhancing artificial intelligence systems",
+      "35. designing robust Hierarchical Reasoning Models",
+      "36. performance evaluation of Hierarchical Reasoning Model",
+      "37. learning strategies for recurrent neural networks with hierarchy",
+      "38. experimental results for Hierarchical Reasoning Models",
+      "39. Hierarchical Reasoning Models and reinforcement learning",
+      "40. future directions in Hierarchical Reasoning Models study",
+      "41. HRM and the future of sequential task automation",
+      "42. interdisciplinary applications of Hierarchical Reasoning Models",
+      "43. Hierarchical Reasoning Model and its impact on AI research",
+      "44. integration of HRM with natural language processing tasks",
+      "45. HRM in robotic planning and decision making",
+      "46. Hierarchical Reasoning Model success stories in industry",
+      "47. HRM contributions to the field of machine learning",
+      "48. societal implications of Hierarchical Reasoning Models",
+      "49. conferences discussing Hierarchical Reasoning Models",
+      "50. HRM and its role in next-generation AI systems"
+    ],
+    "rag_service_url": "",
+    "document_count": 51
+  },
+  "infrastructure": {
+    "source_files": [
+      {
+        "path": "/mnt/d/HRM/dataset/build_arc_dataset.py",
+        "description": "Converts raw puzzle data and applies augmentations.",
+        "is_entry_point": true,
+        "dependencies": []
+      },
+      {
+        "path": "/mnt/d/HRM/models/sparse_embedding.py",
+        "description": "Optimizes sparse embeddings using distributed SignSGD.",
+        "is_entry_point": false,
+        "dependencies": []
+      }
+    ],
+    "file_selection_strategy": "round_robin",
+    "source_file": "/mnt/d/HRM/dataset/build_arc_dataset.py",
+    "training_script": "/mnt/d/ASI-Arch/specializations/hrm/infrastructure/evaluate.sh",
+    "result_file": "/mnt/d/ASI-Arch/specializations/hrm/results/evaluation.csv",
+    "test_result_file": "/mnt/d/ASI-Arch/specializations/hrm/results/metrics.csv",
+    "debug_file": "/mnt/d/ASI-Arch/specializations/hrm/debug/error.txt",
+    "code_pool": "/mnt/d/ASI-Arch/specializations/hrm/pool",
+    "timeout_seconds": 7200,
+    "max_debug_attempts": 3,
+    "max_retry_attempts": 10
+  },
+  "database_collection": "hrm_elements",
+  "experiment_count": 0,
+  "best_score": 0.0,
+  "last_experiment_at": null,
+  "is_validated": true,
+  "validation_errors": []
+}

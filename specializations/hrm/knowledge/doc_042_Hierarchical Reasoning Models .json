@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models in Autonomous Systems",
+  "source": "Research summary: 42. interdisciplinary applications of Hierarchical Reasoning Models",
+  "design_insight": "HRMs provide a structured framework for breaking down complex reasoning tasks into manageable sub-tasks using a hierarchy that mimics human cognitive processes, enhancing decision-making and scalability.",
+  "experimental_trigger_patterns": "Apply HRMs when there's a need for structured decision-making in complex tasks, especially when tasks can be decomposed hierarchically. Look for systems with high-level strategic and low-level operational decisions.",
+  "background": "HRMs were developed to mimic human cognitive processes and improve decision-making by organizing tasks into hierarchical structures, making them applicable across fields like AI, cognitive science, and organizational management. They manage complexity, enhance adaptability, and facilitate interdisciplinary integration.",
+  "algorithmic_innovation": "HRMs use decomposition techniques, hierarchical planning algorithms, and layered architectures to facilitate dynamic and adaptive decision-making processes.",
+  "implementation_guidance": "Ensure alignment with system objectives, utilize modular designs, encourage interdisciplinary collaboration, and implement continuous evaluation mechanisms. Optimize resource allocation through task hierarchies and adapt to real-time changes.",
+  "design_ai_instructions": "Decompose tasks using hierarchical structures, prioritize modular and dynamic designs, align with system objectives, collaborate across disciplines, and continuously evaluate and refine models. Avoid making the hierarchy overly rigid or too complex to manage and adjust.",
+  "relevance_score": 0.95
+}

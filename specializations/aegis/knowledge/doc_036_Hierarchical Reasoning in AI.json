@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning in AI",
+  "source": "Research summary: 36. \"contemporary approaches to hierarchical reasoning in AI\"",
+  "design_insight": "Hierarchical reasoning exploits multi-level abstraction and hierarchical reinforcement learning to enhance decision-making and problem-solving efficiency by breaking down complex tasks into manageable sub-tasks.",
+  "experimental_trigger_patterns": "Apply when encountering tasks that have a clear multi-layered structure or require simultaneous high-level planning and low-level execution, such as autonomous driving, robotics, and complex simulations.",
+  "background": "Developed to address the complexity of structured decision-making and problem-solving, hierarchical reasoning draws inspiration from divide-and-conquer strategies and has been informed by cognitive science and organizational theories.",
+  "algorithmic_innovation": "Introduction of hierarchical reinforcement learning mechanisms, such as the Option-Critic Architecture and Hierarchical Graph Attention Networks (HGATs), which allow for efficient policy learning and the handling of structured data.",
+  "implementation_guidance": "Ensure effective problem decomposition to manage task granularity, utilize layered learning strategies to build robust foundational capabilities, and apply evaluation metrics to assess both task performance and layer efficiency.",
+  "design_ai_instructions": "Focus on problem decomposition into independently manageable sub-tasks, optimize lower layers before higher abstraction levels, ensure system scalability and flexibility for future extensions, and integrate insights from interdisciplinary fields to align AI systems with natural intelligence management.",
+  "relevance_score": 0.9
+}

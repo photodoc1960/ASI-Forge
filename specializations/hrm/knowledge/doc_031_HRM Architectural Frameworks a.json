@@ -1,0 +1,11 @@
+{
+  "title": "HRM Architectural Frameworks and AI Integration",
+  "source": "Research summary: 31. theoretical frameworks supporting HRM architectures",
+  "design_insight": "Integrating AI systems into HRM architectures using strategic frameworks to enhance human capital management, organizational alignment, and compliance while leveraging AI for data-driven decision-making.",
+  "experimental_trigger_patterns": "Apply AI-enhanced HRM techniques when organizational challenges in alignment, compliance, and strategic workforce planning arise; or when there's a need to increase employee engagement and retention through data analysis.",
+  "background": "Derived from theories including Resource-Based View, Human Capital, Contingency, Institutional, Social Exchange, and Configurational approaches, HRM architectures have evolved to strategically align human capital management with organizational goals, emphasizing unique capabilities, compliance, and adaptable systems.",
+  "algorithmic_innovation": "The incorporation of AI for analyzing HRM data, providing insights into patterns and trends to inform strategic HR decisions\u2014ensuring dynamic adaptation to workforce changes and enhancing strategic alignment.",
+  "implementation_guidance": "Align HRM with organizational strategies utilizing AI for enhanced data analysis. Implement assessment tools and AI-driven insights to adapt strategies; ensure compliance with institutional norms. Optimize workforce planning and employee engagement through AI-facilitated customization and monitoring.",
+  "design_ai_instructions": "The AI should analyze HR data to derive insights that enhance decision-making in strategic alignment, compliance, and human capital enhancement. Avoid reinforcing existing biases in data; ensure adaptability and legal compliance of AI recommendations in HR practices.",
+  "relevance_score": 0.9
+}

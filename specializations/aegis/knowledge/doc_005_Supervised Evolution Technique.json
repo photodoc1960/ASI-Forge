@@ -1,0 +1,11 @@
+{
+  "title": "Supervised Evolution Techniques in AGI",
+  "source": "Research summary: 5. \"supervised evolution methods in artificial general intelligence\"",
+  "design_insight": "Integration of evolutionary computation with supervised learning to enhance generalization and scalability across tasks.",
+  "experimental_trigger_patterns": "When models demonstrate poor generalization or adaptation to new tasks and environments, or when traditional supervised methods face scalability challenges.",
+  "background": "Developed to address limitations in traditional AI, aiming to create autonomous systems with better adaptability and cognitive capabilities through evolutionary strategies combined with supervised learning.",
+  "algorithmic_innovation": "Use of evolutionary algorithms for neural architecture search, refined by supervised learning metrics. Incorporation of fitness function design that leverages supervised learning signals for more effective convergence.",
+  "implementation_guidance": "Utilize hybrid models combining evolutionary strategies with gradient-based optimization. Design fitness functions that incorporate supervised learning metrics. Exploit parallel processing for scalability.",
+  "design_ai_instructions": "Develop models using evolutionary algorithms enhanced by supervised learning insights. Avoid overfitting by applying cross-validation. Employ modular evolutionary processes and adaptive mutation rates.",
+  "relevance_score": 0.9
+}

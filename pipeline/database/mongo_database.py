@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 import requests
 
 from config import Config
-from database.element import DataElement
+from .element import DataElement
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -54,19 +54,21 @@ class MongoDBAPIException(Exception):
 class MongoDBAPIClient:
     """MongoDB API client wrapper class."""
     
-    def __init__(self, 
-                 base_url: str = Config.DATABASE,
+    def __init__(self,
+                 base_url: str = None,
                  timeout: int = 30,
                  verify_ssl: bool = True):
         """
         Initialize API client.
-        
+
         Args:
             base_url: API service base URL
             timeout: Request timeout in seconds
             verify_ssl: Whether to verify SSL certificate
         """
-        self.base_url = base_url.rstrip('/')
+        if base_url is None:
+            base_url = Config._DATABASE
+        self.base_url = base_url.rstrip('/') if base_url else ""
         self.timeout = timeout
         self.verify_ssl = verify_ssl
         self.headers = {"Content-Type": "application/json"}
@@ -233,7 +235,7 @@ class MongoDBAPIClient:
         """
         try:
             response = self._make_request("GET", "/elements/sample")
-            return DataElement(**response)
+            return DataElement.from_dict(response)
         except MongoDBAPIException as e:
             if e.status_code == 404:
                 return None
@@ -250,7 +252,7 @@ class MongoDBAPIClient:
             Data element list
         """
         response = self._make_request("GET", f"/elements/by-name/{name}")
-        return [DataElement(**item) for item in response]
+        return [DataElement.from_dict(item) for item in response]
     
     def get_elements_by_index(self, index: int) -> Optional[DataElement]:
         """
@@ -264,7 +266,7 @@ class MongoDBAPIClient:
         """
         try:
             response = self._make_request("GET", f"/elements/by-index/{index}")
-            return DataElement(**response)
+            return DataElement.from_dict(response)
         except MongoDBAPIException as e:
             if e.status_code == 404:
                 return None
@@ -331,7 +333,7 @@ class MongoDBAPIClient:
         
         params = {"motivation": motivation, "top_k": top_k}
         response = self._make_request("GET", "/elements/search-similar", params=params)
-        return [DataElement(**item) for item in response]
+        return [DataElement.from_dict(item) for item in response]
     
     def get_top_k_results(self, k: int) -> List[DataElement]:
         """
@@ -347,7 +349,7 @@ class MongoDBAPIClient:
             raise ValueError("k must be between 1-1000")
         
         response = self._make_request("GET", f"/elements/top-k/{k}")
-        return [DataElement(**item) for item in response]
+        return [DataElement.from_dict(item) for item in response]
     
     def sample_from_range(self, a: int, b: int, k: int) -> List[DataElement]:
         """
@@ -371,7 +373,7 @@ class MongoDBAPIClient:
             raise ValueError("Range cannot exceed 10000")
         
         response = self._make_request("GET", f"/elements/sample-range/{a}/{b}/{k}")
-        return [DataElement(**item) for item in response]
+        return [DataElement.from_dict(item) for item in response]
     
     def uct_select_node(self, c_param: float = 1.414) -> Optional[DataElement]:
         """
@@ -394,7 +396,7 @@ class MongoDBAPIClient:
         params = {"c_param": c_param}
         try:
             response = self._make_request("GET", "/elements/uct-select", params=params)
-            return DataElement(**response)
+            return DataElement.from_dict(response)
         except MongoDBAPIException as e:
             if e.status_code == 404:
                 return None
@@ -479,11 +481,17 @@ class MongoDBAPIClient:
             raise ValueError("Range cannot exceed 50")
 
         response = self._make_request("GET", f"/candidates/sample-range/{a}/{b}/{k}")
-        return [DataElement(**item) for item in response]
+        return [DataElement.from_dict(item) for item in response]
 
 
 # ========== Convenience Factory Function ==========
 
-def create_client(base_url: str = Config.DATABASE) -> MongoDBAPIClient:
+def create_client(base_url: str = None) -> MongoDBAPIClient:
     """Create API client."""
+    if base_url is None:
+        base_url = Config._DATABASE
     return MongoDBAPIClient(base_url=base_url)
+
+
+# Alias for backwards compatibility
+create_admin_client = create_client

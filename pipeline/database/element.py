@@ -20,6 +20,8 @@ class DataElement:
     parent: Optional[int] = None
     index: Optional[int] = None
     summary: Optional[str] = None
+    motivation_embedding: Optional[list] = None
+    score: Optional[float] = None
     
     def to_dict(self) -> Dict:
         """Convert DataElement instance to dictionary."""
@@ -34,14 +36,19 @@ class DataElement:
         )
         summary_result = summary.final_output.experience
 
+        # Safely get result fields
+        result = self.result if isinstance(self.result, dict) else {}
+        train_result = result.get("train", "N/A")
+        test_result = result.get("test", "N/A")
+
         return f"""## EXPERIMENTAL EVIDENCE PORTFOLIO
 
 ### Experiment: {self.name}
 **Architecture Identifier**: {self.name}
 
 #### Performance Metrics Summary
-**Training Progression**: {self.result["train"]}
-**Evaluation Results**: {self.result["test"]}
+**Training Progression**: {train_result}
+**Evaluation Results**: {test_result}
 
 #### Implementation Analysis
 ```python
@@ -56,4 +63,18 @@ class DataElement:
     @classmethod
     def from_dict(cls, data: Dict) -> 'DataElement':
         """Create DataElement instance from dictionary."""
-        return cls(**data)
+        return cls(
+            time=data.get('time', ''),
+            name=data.get('name', ''),
+            result=data.get('result', {}),
+            program=data.get('program', ''),
+            motivation=data.get('motivation', ''),
+            analysis=data.get('analysis', ''),
+            cognition=data.get('cognition', ''),
+            log=data.get('log', ''),
+            parent=data.get('parent', None),
+            index=data.get('index', None),
+            summary=data.get('summary', None),
+            motivation_embedding=data.get('motivation_embedding', None),
+            score=data.get('score', None)
+        )

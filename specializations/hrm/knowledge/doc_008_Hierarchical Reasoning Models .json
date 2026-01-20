@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models in AI",
+  "source": "Research summary: 8. Hierarchical Reasoning Model in artificial intelligence",
+  "design_insight": "Hierarchical Reasoning Models (HRMs) enable complex decision-making by structuring tasks into manageable sub-tasks, fostering modular development and incremental complexity in AI systems.",
+  "experimental_trigger_patterns": "Apply HRMs when dealing with complex, sequential decision-making tasks where modularization, task hierarchy, or cognitive mimicking can improve performance, such as in robotics, game playing, or NLP systems.",
+  "background": "HRMs were developed to address the need for structured problem-solving in AI, mimicking human cognitive processes by layering complex tasks into hierarchies. This approach enhances error debugging, system understanding, and learning efficiency.",
+  "algorithmic_innovation": "Core innovations include the use of Markov Decision Processes and Semi-MDPs for hierarchy modeling, Hierarchical Task Networks for planning, and the Options framework for temporal abstraction, enhancing learning efficiency and decision-making in multi-layered tasks.",
+  "implementation_guidance": "Use state abstraction techniques to simplify state spaces and apply layered learning for each hierarchy level to optimize strategies before integration. Maintain consistent interfaces between hierarchies to ensure seamless communication and minimize errors.",
+  "design_ai_instructions": "An AI system should break down complex tasks into hierarchies, optimize each layer separately before integration, and ensure robust interface standards for interaction between layers. It should also monitor performance regularly and adapt using real-time feedback.",
+  "relevance_score": 0.95
+}

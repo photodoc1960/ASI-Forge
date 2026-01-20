@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models in AI Applications",
+  "source": "Research summary: 36. performance evaluation of Hierarchical Reasoning Model",
+  "design_insight": "HRMs use layered architectures to simulate human-like cognitive reasoning capable of handling complex semantic understanding and structured decision-making tasks.",
+  "experimental_trigger_patterns": "Use HRMs when the task requires high-level abstraction and deep semantic understanding, such as in natural language processing or hierarchical decision-making systems.",
+  "background": "HRMs were developed to enhance the ability of AI systems to mimic human reasoning by structuring information processing through multiple layers, improving the interpretability and inference capability in complex tasks.",
+  "algorithmic_innovation": "The innovation lies in utilizing multi-layered abstraction to improve cognitive reasoning, and employing transfer learning to enhance adaptability and robustness across domains.",
+  "implementation_guidance": "1. Optimize layer depth according to task complexity to balance efficiency and accuracy. 2. Use techniques like dropout or weight decay for regularization. 3. Perform hyperparameter tuning with grid search or Bayesian optimization to achieve optimal configurations.",
+  "design_ai_instructions": "1. Implement HRMs when tasks involve complex sequential reasoning or require hierarchical processing. 2. Avoid unnecessary model complexity that does not contribute to task performance. 3. Regularly update models incrementally with new data to maintain high accuracy without full retraining.",
+  "relevance_score": 0.9
+}

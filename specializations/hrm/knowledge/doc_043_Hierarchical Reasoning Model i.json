@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Model in AI",
+  "source": "Research summary: 43. Hierarchical Reasoning Model and its impact on AI research",
+  "design_insight": "HRM breaks down complex reasoning tasks into manageable sub-tasks, promoting a structured, modular approach that enhances scalability, interpretability, and adaptability.",
+  "experimental_trigger_patterns": "Apply HRM when tasks are complex and can be hierarchically decomposed. Look for structured problem-solving needs, scalability challenges, or when interpretability is a priority.",
+  "background": "HRM was developed to address complexity in AI systems by structuring problem-solving through hierarchical decomposition, inspired by the need for efficient resource allocation and enhanced interpretability.",
+  "algorithmic_innovation": "HRM implements hierarchical task decomposition, layered control architectures, and integrates hierarchical reinforcement learning to handle complex decision-making and reasoning.",
+  "implementation_guidance": "Use task decomposition methods like task trees; plan hierarchically with layered control architectures; leverage cascading neural networks; maintain clear interfaces between layers for communication.",
+  "design_ai_instructions": "Decompose tasks into hierarchical sub-tasks; use modular architectures; maintain flexibility and clear interfaces; integrate domain knowledge and focus on iterative refinement with regular performance evaluations.",
+  "relevance_score": 0.95
+}

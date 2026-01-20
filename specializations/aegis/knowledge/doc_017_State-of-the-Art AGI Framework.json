@@ -1,0 +1,11 @@
+{
+  "title": "State-of-the-Art AGI Frameworks for Self-learning",
+  "source": "Research summary: 17. \"state-of-the-art AGI frameworks for self-learning\"",
+  "design_insight": "Integrate hierarchical and modular architectures to break down complex tasks and facilitate adaptability and scalability.",
+  "experimental_trigger_patterns": "Apply when developing frameworks aimed at tasks requiring adaptability, efficient learning, and reasoning capabilities across domains with sparse data and rewards.",
+  "background": "AGI frameworks strive to emulate human cognitive abilities, enabling systems to learn and adapt to diverse tasks and environments leveraging meta-learning, transfer learning, and reinforcement learning techniques.",
+  "algorithmic_innovation": "Hybrid architectures combining symbolic reasoning with deep learning for improved reasoning and decision-making, and self-supervised learning for better data representation.",
+  "implementation_guidance": "Utilize curriculum learning for task complexity incrementally, employ Neural Architecture Search for optimized structures, and integrate safety and ethical considerations throughout the design.",
+  "design_ai_instructions": "Focus on scalability, data efficiency, and continual interactivity. Avoid overfitting and ensure integration of ethical and safety protocols. Implement feedback loops and utilize benchmarking for continuous improvement.",
+  "relevance_score": 0.9
+}

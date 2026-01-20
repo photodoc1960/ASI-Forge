@@ -1,0 +1,11 @@
+{
+  "title": "AGI System Evaluation and Improvement Practices",
+  "source": "Research summary: 18. \"AGI systems benchmarks and evaluation techniques\"",
+  "design_insight": "The integration of comprehensive benchmarks, cognitive assessments, and longitudinal testing is crucial for developing robust and safe AGI systems.",
+  "experimental_trigger_patterns": "Apply when an AGI system requires evaluation for multitasking, adaptability, transfer learning, and safety; or when showing signs of overfitting or poor generalization across tasks.",
+  "background": "Developed from the need to assess AGI's capability in human-like reasoning, multitasking, and adaptation across variable scenarios, ensuring systems are robust and can generalize beyond narrow tasks.",
+  "algorithmic_innovation": "Utilizing specialized benchmarks like MABE, Winograd Schema Challenge, and adversarial testing frameworks to assess and improve AGI's reasoning, decision-making, and safety protocols.",
+  "implementation_guidance": "Employ multitask benchmarks (e.g., OpenAI Gym) and reasoning assessments (e.g., Automated Theorem Proving); incorporate feedback loops for adaptive learning baselines and ensure safety evaluations are part of the overall testing strategy.",
+  "design_ai_instructions": "Continuously integrate diverse evaluation benchmarks; implement scenario-based testing; avoid overfitting by using robust and comprehensive testing protocols; ensure transparency and reproducibility in results.",
+  "relevance_score": 0.92
+}

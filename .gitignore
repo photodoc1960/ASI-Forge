@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+pipeline/logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+PDF/
+*.docx
+causal_conv1d_windows.py
+windows_cuda_init.py
+requirements_windows_safe.txt
+pipeline/benchmark_results.txt
+pipeline/compatibility_results.txt
+pipeline/test_results.txt
+pipeline/time_results.txt
+pipeline/hrm_validation.txt
+
+# Keep specializations but not all generated files
+specializations/*/debug/
+specializations/*/results/
+specializations/*/pool/

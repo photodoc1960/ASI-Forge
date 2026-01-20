@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Model (HRM) in Decision-Making",
+  "source": "Research summary: 23. Hierarchical Reasoning Model applications across industries",
+  "design_insight": "The Hierarchical Reasoning Model structures reasoning tasks into a layered approach, allowing complex problems to be broken down into simpler components, which enhances manageability and clarity.",
+  "experimental_trigger_patterns": "Apply when tasks involve multi-level decision-making with high-level strategies guiding low-level operations. Effective in scenarios like supply chain optimization, clinical decision support, modular software development, risk management, and CRM.",
+  "background": "The HRM is founded on the premise of multi-level decision-making, enabling complex tasks to be decomposed into manageable sub-tasks. Historically used across various industries like manufacturing, healthcare, IT, finance, and retail.",
+  "algorithmic_innovation": "The integration of rule-based systems at higher reasoning levels with machine learning models at granular levels enables dynamic decision adjustments based on data patterns.",
+  "implementation_guidance": "Ensure modularity and scalability in system architectures for flexible updates. Utilize data classification frameworks to manage strategic and operational levels. Maintain data integrity, span cross-functional areas, and establish feedback loops for continuous learning.",
+  "design_ai_instructions": "Implement a multi-tiered data processing framework distinguishing strategic and operational data. Avoid overhauling entire processes by ensuring system modularity. Prioritize data integrity and establish cross-functional decision-making pathways.",
+  "relevance_score": 0.9
+}

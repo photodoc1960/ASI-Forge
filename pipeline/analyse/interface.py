@@ -1,3 +1,12 @@
+"""
+ASI-Forge Analysis Interface
+
+Interface for the analysis module that interprets experimental results.
+Coordinates the Analyzer agent to extract insights from experiments.
+
+Based on ASI-Arch by Liu et al. (2025) - "AlphaGo Moment for Model Architecture Discovery"
+"""
+
 import csv
 import io
 import re
@@ -25,14 +34,22 @@ def extract_original_name(timestamped_name: str) -> str:
 async def analyse(
     name: str,
     motivation: str,
-    program_file_path: str = Config.SOURCE_FILE,
-    result_file_path: str = Config.RESULT_FILE,
-    result_file_path_test: str = Config.RESULT_FILE_TEST,
+    program_file_path: str = None,
+    result_file_path: str = None,
+    result_file_path_test: str = None,
     parent: int = None
 ) -> DataElement:
     """Analyze experiment results and generate comprehensive analysis."""
+    # Resolve defaults from Config
+    if program_file_path is None:
+        program_file_path = Config._SOURCE_FILE if not Config._specialization else Config._specialization.infrastructure.source_file
+    if result_file_path is None:
+        result_file_path = Config._RESULT_FILE if not Config._specialization else Config._specialization.infrastructure.result_file
+    if result_file_path_test is None:
+        result_file_path_test = Config._RESULT_FILE_TEST if not Config._specialization else Config._specialization.infrastructure.test_result_file
+
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
+
     # Extract original name (remove timestamp)
     original_name = extract_original_name(name)
     
@@ -62,11 +79,17 @@ async def analyse(
     
     analysis = await run_analyzer(original_name, result_content, motivation, ref_elements)
     
-    # Get paper content
+    # Get paper content from RAG (if available)
     paper_query = analysis.experimental_results_analysis
     paper_result = run_rag(paper_query)
-    
-    paper_content = paper_result['results']  # Further refine content in subsequent processing
+
+    if paper_result.get('success') and 'results' in paper_result:
+        paper_content = paper_result['results']
+    else:
+        # RAG service unavailable or returned error - use empty content
+        paper_content = []
+        if not paper_result.get('success'):
+            print(f"[ANALYSE] RAG query failed: {paper_result.get('error', 'unknown error')}")
     content_str = str(paper_content)
     analysis_result = (
         analysis.design_evaluation + 
@@ -175,34 +198,37 @@ async def run_analyzer(
 def _build_reference_context(ref_elements: dict) -> str:
     """Build reference context string from reference elements."""
     ref_context = "# Reference Experiments\n"
-    
+
     if ref_elements.get("direct_parent"):
         ref_context += "### Direct Parent\n"
-        ref_context += _ref_elements_context(DataElement(**ref_elements["direct_parent"]))
+        ref_context += _ref_elements_context(DataElement.from_dict(ref_elements["direct_parent"]))
         ref_context += "\n\n"
 
     if ref_elements.get("strongest_siblings"):
         ref_context += "### Strongest Siblings\n"
         for sibling in ref_elements["strongest_siblings"]:
-            ref_context += _ref_elements_context(DataElement(**sibling))
+            ref_context += _ref_elements_context(DataElement.from_dict(sibling))
         ref_context += "\n\n"
 
     if ref_elements.get("grandparent"):
         ref_context += "### Grandparent\n"
-        ref_context += _ref_elements_context(DataElement(**ref_elements["grandparent"]))
+        ref_context += _ref_elements_context(DataElement.from_dict(ref_elements["grandparent"]))
         ref_context += "\n\n"
-    
+
     return ref_context
 
 
 def _ref_elements_context(ref_element: DataElement) -> str:
     """Generate context string for a reference element."""
+    result = ref_element.result if isinstance(ref_element.result, dict) else {}
+    train_result = result.get("train", "N/A")
+    test_result = result.get("test", "N/A")
     return f"""### Reference Experiment {ref_element.name}
 #### Experiment Motivation
 {ref_element.motivation}
 #### Experiment Result
-**Training Progression**: {ref_element.result["train"]}
-**Evaluation Results**: {ref_element.result["test"]}
+**Training Progression**: {train_result}
+**Evaluation Results**: {test_result}
 """
 
 

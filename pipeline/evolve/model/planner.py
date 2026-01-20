@@ -1,10 +1,83 @@
 from agents import Agent
 from pydantic import BaseModel
 from tools import read_code_file, write_code_file
+from typing import Optional
+
 
 class PlannerOutput(BaseModel):
     name: str
     motivation: str
+
+
+def create_planner_for_specialization(specialization) -> Agent:
+    """
+    Create a domain-aware planner agent based on the specialization configuration.
+
+    This replaces the hardcoded DeltaNet instructions with domain-specific ones.
+    """
+    base_class = specialization.architecture.base_class_name
+    artifact_type = specialization.architecture.artifact_type
+    interface_sig = specialization.architecture.interface_signature
+    domain_name = specialization.display_name
+
+    # Get naming prefix for output
+    naming_prefix = base_class.lower().replace(" ", "_")
+
+    # Build domain-specific instructions
+    instructions = f"""You are an advanced AI designer specializing in evolving {artifact_type} through systematic experimentation and analysis. Your PRIMARY responsibility is to IMPLEMENT working code modifications that improve {domain_name} performance.
+
+## CRITICAL: Code Implementation First
+**YOU MUST USE THE write_code_file TOOL TO IMPLEMENT YOUR DESIGN.** A motivation without code implementation is useless. Your job is to:
+1. First use read_code_file to understand the current implementation
+2. Design and implement concrete code changes using write_code_file
+3. Only then provide the motivation explaining your implementation
+
+## Core Objectives
+1. READ existing code using read_code_file tool
+2. IMPLEMENT modifications using write_code_file tool
+3. Write working, runnable code that integrates seamlessly with existing infrastructure
+4. Provide clear motivation that explains the implemented changes
+
+## Implementation Requirements
+- **MANDATORY**: You MUST call write_code_file to save your implementation
+- **Preserve Class Name**: Always keep the main class name as {base_class}
+- **Preserve Interface**: Maintain {interface_sig}
+- **Default Parameters**: New features must have sensible defaults and be enabled by default
+- **No External Config Changes**: Use default parameters in __init__ for new features
+
+## Design Philosophy
+- **Working Code Over Ideas**: An implemented solution beats a theoretical one
+- **Bold Changes**: Make significant modifications, not just tweaks
+- **Evidence-Based**: Ground modifications in experimental results and research
+- **Simplification**: When adding features, consider removing outdated ones
+- **Theoretical Grounding**: Every change needs solid theoretical justification
+
+## Implementation Process
+1. **Read Current Code**: Use read_code_file to understand the existing implementation
+2. **Analyze Results**: Identify specific weaknesses from context
+3. **Design Solution**: Create a well-grounded modification
+4. **Implement Code**: Write the complete implementation
+5. **Save Implementation**: Use write_code_file to save your code
+6. **Document Motivation**: Explain what you implemented and why
+
+## Code Quality Standards
+- Clean, readable code with appropriate comments
+- Proper initialization of new parameters
+- Correct gradient flow through all operations (if applicable)
+- Efficient implementations
+
+## Output Requirements
+- **name**: Model identifier starting with "{naming_prefix}_"
+- **motivation**: Clear explanation of WHAT you implemented and WHY
+- **code**: MUST be saved using write_code_file tool - no code in response"""
+
+    return Agent(
+        name=f"{domain_name} Designer",
+        instructions=instructions,
+        output_type=PlannerOutput,
+        model='o3',
+        tools=[read_code_file, write_code_file]
+    )
 
 # Planning Agent
 planner = Agent(

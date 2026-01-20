@@ -1,0 +1,11 @@
+{
+  "title": "Integration of Hierarchical Reasoning Models (HRMs) with AI Technologies",
+  "source": "Research summary: 30. integrating Hierarchical Reasoning Models with other AI technologies",
+  "design_insight": "Hierarchical Reasoning Models structure reasoning processes in layered levels, enhancing interpretability and emulating human cognitive structures for complex decision-making tasks.",
+  "experimental_trigger_patterns": "Apply HRMs when dealing with complex, sequential decision-making tasks, especially where human-like abstraction and interpretability are beneficial. Performance symptoms include inefficient task decomposition and high cognitive complexity.",
+  "background": "Developed to emulate human cognitive processes, HRMs provide structured decision-making by using layered levels of abstraction. They integrate well with AI technologies like deep learning and natural language processing to enhance functionality and interpretability.",
+  "algorithmic_innovation": "Development of hybrid architectures, combining HRMs with deep learning and reinforcement learning models for efficient learning, task decomposition, and transfer learning capabilities.",
+  "implementation_guidance": "Maintain modular structures for flexibility and updates. Use standardized interfaces for seamless integration with other AI components. Implement explainable AI techniques for interpretability.",
+  "design_ai_instructions": "Structure AI solutions hierarchically for complex tasks. Decompose tasks with HRMs and hybrid neural networks for efficient processing. Avoid neglecting modularity and interoperability. Be wary of scalability and adaptivity challenges.",
+  "relevance_score": 0.9
+}

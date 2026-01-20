@@ -2,8 +2,13 @@
 """
 MongoDB REST API Service
 Provides HTTP interfaces to operate on a MongoDB database.
+
+Set the COLLECTION_NAME environment variable to use a different collection.
+Default: data_elements
+Example: COLLECTION_NAME=aegis_elements python mongodb_api.py
 """
 import logging
+import os
 from contextlib import asynccontextmanager
 from typing import Dict, List, Optional, Any
 from datetime import datetime
@@ -13,25 +18,31 @@ from pydantic import BaseModel, Field
 import uvicorn
 from mongodb_database import MongoDatabase
 from util import DataElement
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Collection name from environment variable (allows per-specialization isolation)
+COLLECTION_NAME = os.environ.get("COLLECTION_NAME", "data_elements")
+
 # Global database connection
 db_connection = None
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifecycle management"""
     global db_connection
     # Initialization on startup
-    logger.info("MongoDB API service starting")
+    logger.info(f"MongoDB API service starting with collection: {COLLECTION_NAME}")
     # Create database connection
     try:
         db_connection = MongoDatabase(
             connection_string="mongodb://admin:password123@localhost:27018",
             database_name="myapp",
-            collection_name="data_elements"
+            collection_name=COLLECTION_NAME
         )
-        logger.info("Database connection created successfully")
+        logger.info(f"Database connection created successfully (collection: {COLLECTION_NAME})")
     except Exception as e:
         logger.error(f"Database connection failed: {e}")
         raise
@@ -493,6 +504,60 @@ async def get_stats():
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to get statistics information: {str(e)}"
         )
+
+
+class SwitchCollectionRequest(BaseModel):
+    """Request model for switching collection"""
+    collection_name: str = Field(..., description="Name of the collection to switch to")
+
+
+@app.post("/switch-collection", response_model=ApiResponse)
+async def switch_collection(request: SwitchCollectionRequest):
+    """
+    Switch to a different MongoDB collection.
+    This allows dynamic collection switching without restarting the API.
+    Useful for supporting multiple specializations (e.g., aegis_elements, linear_attention_elements).
+    """
+    global db_connection, COLLECTION_NAME
+    try:
+        new_collection = request.collection_name
+        if not new_collection or not new_collection.strip():
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Collection name cannot be empty"
+            )
+
+        # Close existing connection
+        if db_connection:
+            try:
+                db_connection.close()
+            except Exception:
+                pass
+
+        # Create new connection with the new collection
+        COLLECTION_NAME = new_collection
+        db_connection = MongoDatabase(
+            connection_string="mongodb://admin:password123@localhost:27018",
+            database_name="myapp",
+            collection_name=new_collection
+        )
+
+        logger.info(f"Switched to collection: {new_collection}")
+        return ApiResponse(
+            success=True,
+            message=f"Successfully switched to collection: {new_collection}"
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to switch collection: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to switch collection: {str(e)}"
+        )
+
+
 @app.post("/repair", response_model=ApiResponse)
 async def repair_database():
     """Repair the database"""

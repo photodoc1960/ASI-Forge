@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Model",
+  "source": "/mnt/d/HRM/README.md",
+  "design_insight": "The Hierarchical Reasoning Model (HRM) uses a novel recurrent architecture with interdependent high-level and low-level modules to achieve significant computational depth for complex sequential reasoning tasks without requiring extensive data or pre-training.",
+  "experimental_trigger_patterns": "Apply HRM when facing tasks requiring complex sequential decision-making with limited data availability. Suitable for scenarios with high-level abstract planning combined with detailed rapid computations, such as solving complex puzzles or pathfinding in large mazes.",
+  "background": "HRM is inspired by the hierarchical and multi-timescale processing observed in the human brain. It was developed to overcome limitations in current large language models like brittleness, extensive data requirements, and high latency seen in Chain-of-Thought (CoT) techniques.",
+  "algorithmic_innovation": "The HRM incorporates two interdependent recurrent modules for sequential reasoning: a high-level module for slow, abstract planning, and a low-level module for fast, detailed computations. This allows HRM to operate efficiently with only 27 million parameters and achieve high performance on reasoning tasks using minimal training samples.",
+  "implementation_guidance": "Ensure PyTorch and CUDA are properly installed and configured. Utilize robust data augmentation techniques and distributed training optimizations to enhance model performance and reduce training time. Configure the system to track experimental metrics using tools like Weights & Biases. Consider using early stopping to prevent late-stage overfitting during training.",
+  "design_ai_instructions": "An AI implementing HRM should focus on preserving the interdependent module structure while optimizing data augmentation and distribution processing strategies. Avoid reliance on extensive pre-training or CoT data. Prioritize training stability and efficiency, ensuring compatibility with future model versions and tackling issues like numerical instability and overfitting early.",
+  "relevance_score": 0.9
+}

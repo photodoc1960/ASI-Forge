@@ -1,0 +1,262 @@
+{
+  "id": "8d072de0-1ffd-4a86-9b85-2bd4466c8d39",
+  "name": "aegis",
+  "display_name": "AEGIS",
+  "description": "AEGIS (Adaptive Evolutionary General Intelligence System) is a fully-featured autonomous AGI framework that combines hierarchical reasoning, self-directed learning, and supervised evolution with comprehensive safety controls.",
+  "created_at": "2026-01-20T03:52:44.649123",
+  "updated_at": "2026-01-20T03:52:44.719554",
+  "init_mode": "seeded",
+  "seed_codebase_path": "/mnt/d/aegis",
+  "architecture": {
+    "base_class_name": "GPT2LoRATrainer",
+    "artifact_type": "code",
+    "standard_parameters": [],
+    "interface_signature": "Component: Class",
+    "required_decorators": [],
+    "file_extension": ".py",
+    "code_style_guidelines": ""
+  },
+  "evaluation": {
+    "baseline_models": [
+      {
+        "name": "baseline_enhanced_data_pipeline",
+        "description": "Baseline for Enhanced Data Pipeline",
+        "score": 50.0,
+        "metrics": {
+          "Training time reduction": 0.5,
+          "Model performance on test sets": 0.5
+        },
+        "training_curve": null
+      },
+      {
+        "name": "baseline_model_architecture_optimization",
+        "description": "Baseline for Model Architecture Optimization",
+        "score": 50.0,
+        "metrics": {
+          "Benchmark performance improvements": 0.5,
+          "Resource usage reduction": 0.5
+        },
+        "training_curve": null
+      }
+    ],
+    "benchmarks": [
+      "Benchmark performance improvements",
+      "Resource usage reduction",
+      "Model performance on test sets",
+      "Training time reduction"
+    ],
+    "primary_metric": "score",
+    "scoring_weights": {
+      "performance": 0.4,
+      "innovation": 0.3,
+      "efficiency": 0.3
+    },
+    "result_format": "csv",
+    "loss_column": "loss",
+    "metric_columns": [
+      "Benchmark performance improvements",
+      "Resource usage reduction",
+      "Model performance on test sets",
+      "Training time reduction"
+    ],
+    "higher_is_better": true,
+    "normalization_baseline": 0.0
+  },
+  "constraints": {
+    "complexity_requirement": "medium",
+    "strict_constraints": [
+      {
+        "name": "PreserveTransformerCompat",
+        "description": "Ensure compatibility with the existing transformers library.",
+        "severity": "strict",
+        "validation_prompt": "Verify that the evolved code is compatible with all supported versions of the transformers library.",
+        "fix_guidance": "Adjust code to use APIs and functions that are supported in the current library version.",
+        "examples": null
+      },
+      {
+        "name": "MaintainCUDACompatibility",
+        "description": "Ensure code can execute correctly when CUDA hardware is unavailable.",
+        "severity": "strict",
+        "validation_prompt": "Run tests to validate functionality on systems without CUDA-installed hardware.",
+        "fix_guidance": "Include conditional logic to handle scenarios when CUDA is unavailable, defaulting to CPU execution.",
+        "examples": null
+      },
+      {
+        "name": "AdhereToDataConstraints",
+        "description": "Training must handle limited data efficiently.",
+        "severity": "strict",
+        "validation_prompt": "Test the training process with minimal dataset to ensure acceptable performance.",
+        "fix_guidance": "Optimize data handling techniques to work efficiently with limited datasets.",
+        "examples": null
+      },
+      {
+        "name": "SecureSafetyValidation",
+        "description": "Implement safety checks to prevent misuse or potential harm.",
+        "severity": "strict",
+        "validation_prompt": "Review safety protocols and validate with test scenarios demonstrating potential misuse cases.",
+        "fix_guidance": "Integrate safety checks and validation logic for identifying and mitigating risks.",
+        "examples": null
+      }
+    ],
+    "critical_constraints": [
+      {
+        "name": "EnhancePipelineEfficiency",
+        "description": "Reduce training time without compromising model performance.",
+        "severity": "critical",
+        "validation_prompt": "Benchmark training times and performance metrics pre- and post-evolution to confirm efficiency gains.",
+        "fix_guidance": "Identify and optimize bottlenecks in the data pipeline to achieve time reductions while maintaining accuracy.",
+        "examples": null
+      },
+      {
+        "name": "PreventOverfitting",
+        "description": "Ensure the model does not overfit to the training data.",
+        "severity": "critical",
+        "validation_prompt": "Perform cross-validation and test on unseen data to confirm generalizability.",
+        "fix_guidance": "Introduce regularization techniques or adjust model complexity to reduce overfitting risks.",
+        "examples": null
+      },
+      {
+        "name": "ResourceEfficiency",
+        "description": "Optimize computational resource usage.",
+        "severity": "critical",
+        "validation_prompt": "Analyze resource usage and confirm reductions post optimization.",
+        "fix_guidance": "Refactor code to eliminate unnecessary resource consumption and improve efficiency.",
+        "examples": null
+      }
+    ],
+    "flexible_constraints": [
+      {
+        "name": "CodeStyleConsistency",
+        "description": "Ensure code style is consistent with project standards.",
+        "severity": "flexible",
+        "validation_prompt": "Run a static analyzer to check code style adherence.",
+        "fix_guidance": "Modify code formatting and conventions to align with project style guidelines.",
+        "examples": null
+      },
+      {
+        "name": "EnhancedDocumentation",
+        "description": "Improve documentation for better clarity and maintenance.",
+        "severity": "flexible",
+        "validation_prompt": "Review and ensure documentation completeness and clarity.",
+        "fix_guidance": "Provide detailed comments and documentation for new and altered components.",
+        "examples": null
+      }
+    ],
+    "preservation_rules": [
+      "InterfaceSignatureStability",
+      "StableDependencies"
+    ]
+  },
+  "prompts": {
+    "_stored_separately": true
+  },
+  "knowledge": {
+    "corpus_path": "/mnt/d/ASI-Arch/specializations/aegis/knowledge",
+    "index_name": "aegis_knowledge",
+    "embedding_model": "intfloat/e5-base-v2",
+    "rag_service_url": "http://localhost:13142",
+    "default_search_queries": [
+      "1. \"AEGIS framework hierarchical reasoning foundational papers\"",
+      "2. \"adaptive learning techniques in autonomous agents\"",
+      "3. \"self-directed learning in AGI systems\"",
+      "4. \"advancements in hierarchical reasoning for AGI\"",
+      "5. \"supervised evolution methods in artificial general intelligence\"",
+      "6. \"safety controls in autonomous AGI systems\"",
+      "7. \"state-of-the-art adaptive learning algorithms\"",
+      "8. \"benchmark datasets for evaluating AGI frameworks\"",
+      "9. \"evaluation metrics for autonomous agent systems\"",
+      "10. \"implementation best practices for AGI systems\"",
+      "11. \"recent breakthroughs in general intelligence evolution\"",
+      "12. \"hierarchical reasoning in adaptive intelligence\"",
+      "13. \"comprehensive survey on autonomous AGI agents\"",
+      "14. \"foundational research in adaptive evolutionary systems\"",
+      "15. \"latest advancements in AEGIS architecture\"",
+      "16. \"safety mechanisms in autonomous intelligent systems\"",
+      "17. \"state-of-the-art AGI frameworks for self-learning\"",
+      "18. \"AGI systems benchmarks and evaluation techniques\"",
+      "19. \"adaptive learning strategies in autonomous frameworks\"",
+      "20. \"recent developments in supervised evolutionary AGI\"",
+      "21. \"best practices for implementing hierarchical AGI\"",
+      "22. \"evaluation approaches for adaptive AGI models\"",
+      "23. \"next-gen AEGIS systems and safety protocols\"",
+      "24. \"pioneering papers on autonomous reasoning in AGI\"",
+      "25. \"adaptive intelligence systems with safety controls\"",
+      "26. \"innovations in self-directed learning for AGI\"",
+      "27. \"comprehensive analysis of AGI hierarchical systems\"",
+      "28. \"impactful AGI research papers on hierarchical reasoning\"",
+      "29. \"foundational studies on adaptive evolutionary intelligence\"",
+      "30. \"cutting-edge AGI methods for autonomous agents\"",
+      "31. \"review of benchmarks for AGI framework evaluation\"",
+      "32. \"best practices for safety in adaptive general intelligence\"",
+      "33. \"key papers on the evolution of intelligence systems\"",
+      "34. \"advancements in learning frameworks for AGI\"",
+      "35. \"best practices in AGI safety and control mechanisms\"",
+      "36. \"contemporary approaches to hierarchical reasoning in AI\"",
+      "37. \"evaluating AGI systems: methodologies and challenges\"",
+      "38. \"innovative solutions in adaptive intelligence frameworks\"",
+      "39. \"comprehensive reviews on AGI system advancements\"",
+      "40. \"AGI system architecture focusing on hierarchical learning\"",
+      "41. \"insights into adaptive evolutionary techniques in AI\"",
+      "42. \"strategies for safe and reliable autonomous general intelligence\"",
+      "43. \"latest findings in evolutionary learning for AGI\"",
+      "44. \"resources for studying adaptive hierarchical reasoning systems\"",
+      "45. \"evaluation strategies for state-of-the-art AGI models\"",
+      "46. \"implementation challenges in autonomous intelligence systems\"",
+      "47. \"new perspectives on learning in intelligent agent systems\"",
+      "48. \"integrating safety controls in adaptive AGI frameworks\"",
+      "49. \"autonomous agents in AGI: a current overview\"",
+      "50. \"best practices for enhancing AGI system performance\""
+    ],
+    "document_count": 51
+  },
+  "infrastructure": {
+    "source_files": [
+      {
+        "path": "/mnt/d/aegis/core/training/gpt2_lora_trainer.py",
+        "description": "GPT-2 LoRA trainer - handles fine-tuning with Low-Rank Adaptation for agent decision learning",
+        "is_entry_point": true,
+        "dependencies": []
+      },
+      {
+        "path": "/mnt/d/aegis/core/hrm/hierarchical_reasoning.py",
+        "description": "Hierarchical Reasoning Module (HRM) - multi-level reasoning from strategic to tactical",
+        "is_entry_point": false,
+        "dependencies": []
+      },
+      {
+        "path": "/mnt/d/aegis/core/safety/safety_validator.py",
+        "description": "Safety validation system - validates actions against safety constraints before execution",
+        "is_entry_point": false,
+        "dependencies": []
+      },
+      {
+        "path": "/mnt/d/aegis/core/evolution/supervised_evolution.py",
+        "description": "Supervised evolution module - evolves agent capabilities with human oversight",
+        "is_entry_point": false,
+        "dependencies": []
+      },
+      {
+        "path": "/mnt/d/aegis/core/agency/autonomous_agent.py",
+        "description": "Autonomous agent core - manages agent lifecycle, tools, and decision making",
+        "is_entry_point": false,
+        "dependencies": ["/mnt/d/aegis/core/hrm/hierarchical_reasoning.py", "/mnt/d/aegis/core/safety/safety_validator.py"]
+      }
+    ],
+    "file_selection_strategy": "round_robin",
+    "source_file": "/mnt/d/aegis/core/training/gpt2_lora_trainer.py",
+    "training_script": "/mnt/d/ASI-Arch/specializations/aegis/infrastructure/evaluate.sh",
+    "result_file": "/mnt/d/ASI-Arch/specializations/aegis/results/evaluation.csv",
+    "test_result_file": "/mnt/d/ASI-Arch/specializations/aegis/results/metrics.csv",
+    "debug_file": "/mnt/d/ASI-Arch/specializations/aegis/debug/error.txt",
+    "code_pool": "/mnt/d/ASI-Arch/specializations/aegis/pool",
+    "timeout_seconds": 7200,
+    "max_debug_attempts": 3,
+    "max_retry_attempts": 10
+  },
+  "database_collection": "aegis_elements",
+  "experiment_count": 0,
+  "best_score": 0.0,
+  "last_experiment_at": null,
+  "is_validated": true,
+  "validation_errors": []
+}

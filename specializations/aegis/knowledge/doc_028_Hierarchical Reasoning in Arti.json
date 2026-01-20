@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning in Artificial General Intelligence",
+  "source": "Research summary: 28. \"impactful AGI research papers on hierarchical reasoning\"",
+  "design_insight": "Integrate compositional architectures, hybrid paradigms, graph models, and self-supervised learning to enable AGI systems to manage and solve tasks with human-like hierarchical reasoning capabilities.",
+  "experimental_trigger_patterns": "Apply hierarchical reasoning approaches when facing complex tasks that require breaking down into subtasks, when improving learning efficiency through abstraction is needed, or when symbolic knowledge needs integration with neural networks for enhanced decision making.",
+  "background": "Hierarchical reasoning is pivotal in AGI development as it mirrors the human cognitive process of structured information processing. It has evolved to manage complex problem decomposition, decision abstraction, and integration of symbolic knowledge with neural networks.",
+  "algorithmic_innovation": "Incorporate compositional neural networks with dynamic routing, hierarchical reinforcement learning frameworks like Option-Critic, and combine neural and symbolic reasoning models. Use attention mechanisms and graph-based approaches to capture hierarchical relationships.",
+  "implementation_guidance": "Use capsule networks or modular neural networks for problem decomposition. Leverage frameworks such as the Option-Critic for hierarchical control. In self-supervised learning, use hierarchical objectives akin to those in BERT-like models. Graph neural networks should apply message-passing and attention mechanisms effectively.",
+  "design_ai_instructions": "Develop systems using hybrid architectures that can operate across various abstraction levels. Ensure management of probabilistic dependencies hierarchically, and prioritize compositional and modular design patterns. Avoid insufficient safety validation and overfitting by integrating robust error handling and scalable architectures.",
+  "relevance_score": 0.95
+}

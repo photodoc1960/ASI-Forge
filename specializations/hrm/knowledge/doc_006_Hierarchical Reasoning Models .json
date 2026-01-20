@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models (HRMs)",
+  "source": "Research summary: 6. implementation best practices for Hierarchical Reasoning Model",
+  "design_insight": "HRMs leverage layered decomposition and domain knowledge integration to enhance problem-solving capabilities through scalable, adaptable, and efficient hierarchical structures.",
+  "experimental_trigger_patterns": "Consider applying HRMs when facing complex problems that can benefit from layered reasoning and decomposition, particularly where different levels of abstraction are required. Look for performance bottlenecks in sequential decision-making tasks where modular and hierarchical approaches can provide clarity and scalability.",
+  "background": "HRMs were developed to mimic human cognitive processes by structuring reasoning in layers, which enhances their ability to solve complex problems by dividing them into manageable sub-tasks. The approach integrates domain-specific knowledge, improving accuracy and efficiency.",
+  "algorithmic_innovation": "HRMs employ Hierarchical Task Networks (HTNs) to explicitly define tasks and subtasks, use Reinforcement Learning (RL) for optimizing policies, and employ knowledge distillation to maintain computational efficiency. This combination of techniques allows HRMs to decompose tasks effectively and learn hierarchically.",
+  "implementation_guidance": "Use modular architectures to enable independent training of sub-tasks. Define clear objectives and metrics for each hierarchical layer. Ensure data integrity through robust preprocessing techniques. Implement feedback loops for continuous adaptation. Collaborative and interdisciplinary approaches enrich model design and implementation.",
+  "design_ai_instructions": "Ensure the AI system defines clear objectives and performance metrics for each hierarchical layer and integrates feedback loops to adapt over time. Avoid underfitting by optimizing data processing and handling complex model components conservatively to prevent bottlenecks.",
+  "relevance_score": 0.95
+}

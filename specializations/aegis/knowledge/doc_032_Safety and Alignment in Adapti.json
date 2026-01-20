@@ -1,0 +1,11 @@
+{
+  "title": "Safety and Alignment in Adaptive General Intelligence",
+  "source": "Research summary: 32. \"best practices for safety in adaptive general intelligence\"",
+  "design_insight": "Develop robust safety and alignment frameworks for AGI systems that integrate value alignment, robustness, reliability, continual adaptation, and ethical frameworks.",
+  "experimental_trigger_patterns": "Apply safety and alignment frameworks when AGI systems exhibit unpredictable behaviors, ethical misalignments, or when engaging with new and untested environments.",
+  "background": "With the potential of AGI systems to significantly impact society, frameworks were developed to ensure these systems align with human values, are reliable, and operate safely. This development is rooted in ethical, technical, and social considerations.",
+  "algorithmic_innovation": "Introduction of ethical decision-making models, combined capability control, and interruptibility frameworks, and explainable AI techniques such as interpretable models and audit trails.",
+  "implementation_guidance": "Utilize iterative refinement for goal specification, leverage formal verification for validation, implement real-time anomaly detection, and design curriculum learning paths. Ensure regulatory compliance and incorporate stakeholder feedback.",
+  "design_ai_instructions": "An AI implementing AGI safety should continually monitor system decisions against ethical templates, maintain adaptability within safe learning bounds, incorporate multi-stakeholder insights, and regularly validate and verify system operations.",
+  "relevance_score": 0.9
+}

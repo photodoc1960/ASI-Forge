@@ -1,3 +1,12 @@
+"""
+ASI-Forge Evaluation Interface
+
+Interface for the evaluation module that trains and tests evolved artifacts.
+Coordinates the Trainer and Debugger agents.
+
+Based on ASI-Arch by Liu et al. (2025) - "AlphaGo Moment for Model Architecture Discovery"
+"""
+
 import os
 from typing import Tuple
 

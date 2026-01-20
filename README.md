@@ -1,6 +1,7 @@
 <p align="center">
 <!--  <img src="logo.png" style="height: 80px;"> -->
- <h1 align="center">AlphaGo Moment for Model Architecture Discovery</h1>
+ <h1 align="center">ASI-Forge: Autonomous Scientific Intelligence Framework</h1>
+ <h3 align="center">Built on ASI-Arch from "AlphaGo Moment for Model Architecture Discovery"</h3>
 </p>
 <p align="center">
  <a href="https://github.com/GAIR-NLP/ASI-Arch/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/GAIR-NLP/ASI-Arch"></a>
@@ -15,12 +16,14 @@
 
 ## 📋 Overview
 
-This is the official repository for our work "[AlphaGo Moment for Model Architecture Discovery](https://arxiv.org/pdf/2507.18074)". We present a highly autonomous, multi-agent framework that empowers a Large Language Model (LLM) to conduct end-to-end scientific research in the challenging domain of linear attention mechanisms.
+**ASI-Forge** is a universal meta-research framework that extends **ASI-Arch**, the autonomous scientific intelligence system introduced in "[AlphaGo Moment for Model Architecture Discovery](https://arxiv.org/pdf/2507.18074)" by Liu et al. (GAIR-NLP, 2025).
 
+ASI-Arch demonstrated that LLMs can conduct end-to-end scientific research autonomously, discovering **106 novel linear attention architectures** that achieve state-of-the-art performance. ASI-Forge generalizes this capability to **any research domain** through a specialization system.
 
-- 📖 **Paper**: Read our paper (Coming Soon)
+- 📖 **Paper**: [AlphaGo Moment for Model Architecture Discovery](https://arxiv.org/pdf/2507.18074) (Liu et al., 2025)
 - 💻 **Code**: Complete pipeline, database, and cognitive library available in this repository
-- 🔬 **Architectures**: We open-source all 106 discovered state-of-the-art linear attention architectures
+- 🔬 **Architectures**: All 106 discovered state-of-the-art linear attention architectures
+- 🌐 **ASI-Forge**: Multi-domain specialization system for any research field
 
 Our framework supports the following functionalities:
 
@@ -59,6 +62,7 @@ Our system demonstrates **continuous optimization capability**, consistently imp
   - [Installation](#installation)
   - [Environment Setup](#environment-setup)
   - [Running Architecture Discovery](#running-architecture-discovery)
+- [🌐 ASI-Forge: Multi-Domain Specialization System](#-asi-forge-multi-domain-specialization-system)
 - [🔧 Framework Components](#-framework-components)
 - [Acknowledgement](#-acknowledgement)
 - [Citation](#️-citation)
@@ -129,6 +133,49 @@ conda activate asi-arch
 cd pipeline
 python pipeline.py
 ```
+
+## 🌐 ASI-Forge: Multi-Domain Specialization System
+
+**ASI-Forge** extends ASI-Arch into a **universal meta-research framework** that supports **any research domain**. While the default configuration targets linear attention architectures, you can create specializations for drug discovery, materials science, or any other research domain.
+
+### Quick Start with Specializations
+
+```bash
+cd pipeline
+
+# Interactive mode - shows menu to select or create specializations
+python -m cli
+
+# Run with a specific specialization
+python -m pipeline --spec=linear_attention
+
+# Run in legacy mode (original behavior)
+python -m pipeline --legacy
+```
+
+### Creating a New Specialization
+
+1. Launch the CLI: `python -m cli`
+2. Select `[N] Create New Specialization`
+3. Provide:
+   - **Name and description** of your research domain
+   - **Initialization mode**: Seeded (with existing code) or Genesis (from scratch)
+   - **Reference documents**: Point to a folder of papers/documentation to build the knowledge base
+
+The system automatically generates:
+- Domain-specific prompts for all 8 agents
+- Validation constraints tailored to your domain
+- Training infrastructure
+- Knowledge base from your documents + web search
+
+### Key Features
+
+- **Domain Isolation**: Each specialization maintains separate experiment histories
+- **Easy Switching**: Switch between research domains without losing progress
+- **Export/Import**: Share specializations with collaborators
+- **Auto-Bootstrapping**: LLM agents generate all domain-specific configuration
+
+For detailed documentation, see [docs/SPECIALIZATION_GUIDE.md](docs/SPECIALIZATION_GUIDE.md).
 
 ## 🔧 Framework Components
 

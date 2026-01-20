@@ -1,0 +1,156 @@
+{
+  "id": "linear_attention_001",
+  "name": "linear_attention",
+  "display_name": "Linear Attention Architectures",
+  "description": "Autonomous research framework for discovering novel linear attention mechanisms. Focuses on sub-quadratic complexity neural architectures that can replace or enhance standard transformer attention while maintaining or improving performance across language understanding, reasoning, and memory tasks.",
+  "created_at": "2024-01-01T00:00:00",
+  "updated_at": "2024-01-01T00:00:00",
+  "init_mode": "seeded",
+  "seed_codebase_path": null,
+  "architecture": {
+    "base_class_name": "DeltaNet",
+    "artifact_type": "neural_network",
+    "standard_parameters": ["d_model", "hidden_size", "num_heads", "expand_k", "expand_v"],
+    "interface_signature": "def forward(self, x, **kwargs)",
+    "required_decorators": ["@torch.compile"],
+    "file_extension": ".py",
+    "code_style_guidelines": "Use einops.rearrange() for all tensor reshaping. Maintain batch size independence. Support chunked processing."
+  },
+  "evaluation": {
+    "baseline_models": [
+      {
+        "name": "Delta Net",
+        "description": "Basic delta rule architecture for linear attention",
+        "score": 5.0,
+        "metrics": {
+          "ARC Challenge": 0.168,
+          "ARC Easy": 0.250,
+          "BoolQ": 0.364,
+          "HellaSwag": 0.265,
+          "PIQA": 0.535,
+          "WinoGrande": 0.500
+        },
+        "training_curve": [10.2629, 8.9712, 7.8234, 6.9123, 6.2341, 5.7123, 5.3245, 5.0123, 4.7823, 4.5787]
+      },
+      {
+        "name": "Gated Delta Net",
+        "description": "Improved version with gating mechanism",
+        "score": 10.0,
+        "metrics": {
+          "ARC Challenge": 0.168,
+          "ARC Easy": 0.258,
+          "BoolQ": 0.370,
+          "HellaSwag": 0.270,
+          "PIQA": 0.540,
+          "WinoGrande": 0.505
+        },
+        "training_curve": [10.0878, 8.7382, 7.6012, 6.7234, 6.0123, 5.5012, 5.1234, 4.8123, 4.5423, 4.3772]
+      }
+    ],
+    "benchmarks": ["ARC Challenge", "ARC Easy", "BoolQ", "FDA", "HellaSwag", "LAMBDA OpenAI", "OpenBookQA", "PIQA", "Social IQA", "SQuAD Completion", "SWDE", "WinoGrande"],
+    "primary_metric": "average_benchmark",
+    "scoring_weights": {
+      "performance": 0.30,
+      "innovation": 0.25,
+      "complexity": 0.45
+    },
+    "result_format": "csv",
+    "loss_column": "loss",
+    "metric_columns": ["ARC Challenge", "ARC Easy", "BoolQ", "HellaSwag", "PIQA", "WinoGrande"],
+    "higher_is_better": true,
+    "normalization_baseline": 0.224
+  },
+  "constraints": {
+    "complexity_requirement": "O(N log N)",
+    "strict_constraints": [
+      {
+        "name": "Mask Correctness",
+        "description": "All attention/computation masks must be causal - no future information leakage. Position i cannot see positions > i.",
+        "severity": "strict",
+        "validation_prompt": "Examine all masking operations. Verify mask shape matches tensor dimensions. Check mask is applied BEFORE softmax or similar operations.",
+        "fix_guidance": "Ensure causal masking is properly implemented. Mask should be applied before normalization.",
+        "examples": null
+      },
+      {
+        "name": "Complexity Verification",
+        "description": "All operations must be sub-quadratic. O(N) or O(N log N) complexity required, no O(N²) operations.",
+        "severity": "strict",
+        "validation_prompt": "Trace through computational flow. Identify all tensor operations and their complexities. Look for hidden quadratic costs.",
+        "fix_guidance": "Use chunking for any potentially quadratic operations. Replace full attention with chunked processing.",
+        "examples": null
+      },
+      {
+        "name": "Chunkwise Implementation",
+        "description": "All sequence operations must utilize fixed-size chunking for efficiency.",
+        "severity": "strict",
+        "validation_prompt": "Check if operations are performed in chunks. Verify chunk_size is properly extracted and used.",
+        "fix_guidance": "Implement chunked processing for sequence operations.",
+        "examples": null
+      }
+    ],
+    "critical_constraints": [
+      {
+        "name": "Batch Size Independence",
+        "description": "Code must work with ANY batch size. No hardcoded dimensions anywhere. All shapes must be derived from input tensors.",
+        "severity": "critical",
+        "validation_prompt": "Search for hardcoded dimensions. Check position embedding creation uses actual sequence length. Verify all tensor operations use dynamic shapes.",
+        "fix_guidance": "Use einops.rearrange() with dynamic dimension inference. Get dimensions from tensor.shape at runtime.",
+        "examples": [
+          {
+            "before": "mask = torch.ones(4, 8, 512, 512)",
+            "after": "batch_size, num_heads, seq_len, _ = attention_scores.shape\nmask = torch.ones(batch_size, num_heads, seq_len, seq_len)"
+          }
+        ]
+      }
+    ],
+    "flexible_constraints": [
+      {
+        "name": "Logic Validation",
+        "description": "Architectural logic should be theoretically plausible and maintain gradient flow.",
+        "severity": "flexible",
+        "validation_prompt": "Assess if approach is theoretically sound. Check tensor operations are mathematically correct.",
+        "fix_guidance": "Be lenient with novel approaches - they may seem unusual but work.",
+        "examples": null
+      }
+    ],
+    "preservation_rules": [
+      "Maintain DeltaNet class name and inheritance hierarchy",
+      "Preserve exact forward function signature compatibility",
+      "Support **kwargs in __init__ for extensibility",
+      "Apply @torch.compile selectively to core computational functions only",
+      "Maintain d_model and core parameter structure"
+    ]
+  },
+  "prompts": {
+    "_stored_separately": true
+  },
+  "knowledge": {
+    "corpus_path": "./specializations/linear_attention/knowledge",
+    "index_name": "linear_attention_knowledge",
+    "embedding_model": "intfloat/e5-base-v2",
+    "default_search_queries": [
+      "linear attention mechanisms",
+      "sub-quadratic transformers",
+      "efficient attention",
+      "delta rule neural networks"
+    ],
+    "document_count": 0
+  },
+  "infrastructure": {
+    "source_file": "evolve file",
+    "training_script": "your training script",
+    "result_file": "./files/analysis/loss.csv",
+    "test_result_file": "./files/analysis/benchmark.csv",
+    "debug_file": "./files/debug/training_error.txt",
+    "code_pool": "./pool",
+    "timeout_seconds": 7200,
+    "max_debug_attempts": 3,
+    "max_retry_attempts": 10
+  },
+  "database_collection": "data_elements",
+  "experiment_count": 106,
+  "best_score": 0.847,
+  "last_experiment_at": null,
+  "is_validated": true,
+  "validation_errors": []
+}

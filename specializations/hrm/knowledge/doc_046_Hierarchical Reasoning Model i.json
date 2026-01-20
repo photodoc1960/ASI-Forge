@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Model in HRM",
+  "source": "Research summary: 46. Hierarchical Reasoning Model success stories in industry",
+  "design_insight": "Hierarchical Reasoning Model streamlines decision-making by breaking down processes into manageable hierarchical levels, enhancing organizational alignment and leadership capabilities.",
+  "experimental_trigger_patterns": "Use HRM when facing complex decision-making tasks, experiencing alignment issues across departments, or requiring enhanced accountability and efficient resource allocation.",
+  "background": "HRM is rooted in strategic frameworks used in organizations to streamline complex decision-making and promote effective management practices. It enhances clarity, reduces cognitive overload, and enables adaptive leadership.",
+  "algorithmic_innovation": "HRM introduces hierarchical decision-making, where decisions are broken into levels with specific responsibilities. This model supports data-driven insights and adaptive leadership while ensuring accountability and alignment.",
+  "implementation_guidance": "Define clear hierarchical levels with distinct roles, develop standardized decision-making protocols, utilize data analytics for informed decisions, and establish continuous feedback loops for model adjustments.",
+  "design_ai_instructions": "Implement hierarchical levels with explicit decision-making roles. Ensure data-driven decision-making is supported at each level, and integrate consistent feedback mechanisms to enhance adaptability and efficiency.",
+  "relevance_score": 0.95
+}

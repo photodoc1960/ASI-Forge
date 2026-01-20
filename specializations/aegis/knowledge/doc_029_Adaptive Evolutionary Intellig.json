@@ -1,0 +1,11 @@
+{
+  "title": "Adaptive Evolutionary Intelligence in Artificial Systems",
+  "source": "Research summary: 29. \"foundational studies on adaptive evolutionary intelligence\"",
+  "design_insight": "Leverage evolutionary principles like natural selection, fitness landscapes, and neuroevolution to develop adaptive systems that can adapt to dynamic environments or tasks.",
+  "experimental_trigger_patterns": "Use when systems need to adapt continually in changing environments. Suitable in applications requiring continuous learning, such as autonomous systems and dynamic optimization tasks.",
+  "background": "Borrowing from Darwinian evolution theories, adaptive evolutionary techniques were inspired to mimic the processes of natural selection and adaptation in AI systems. This field integrates genetic algorithms, coevolutionary principles, and neuroevolution to enhance AI robustness.",
+  "algorithmic_innovation": "Incorporates genetic algorithms, coevolutionary models, and neuroevolution strategies. Utilizes adaptive parameter control for dynamic mutation and selection processes to maintain a balance between exploration and exploitation.",
+  "implementation_guidance": "Implement selection mechanisms like tournament selection, utilize crossover and mutation techniques intelligently, and maintain diversity through crowding or random immigrants. Consider parallel processing to improve efficiency.",
+  "design_ai_instructions": "Ensure AI systems incorporate genetic diversity maintenance strategies, apply suitable selection schemes, and utilize multi-objective optimization for problem-solving. Combine evolutionary algorithms with deep learning for enhanced adaptability.",
+  "relevance_score": 0.9
+}

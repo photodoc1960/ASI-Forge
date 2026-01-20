@@ -1,0 +1,11 @@
+{
+  "title": "Recurrent Neural Networks: Techniques and Applications",
+  "source": "Research summary: 13. comprehensive surveys on recurrent neural networks",
+  "design_insight": "Recurrent Neural Networks effectively model sequential and time-series data by maintaining hidden states. Architectural variants like LSTMs and GRUs improve on standard RNN limitations, offering better handling of long sequences.",
+  "experimental_trigger_patterns": "Use RNNs when dealing with sequential data involving dependencies over time or sequences, such as language modeling, machine translation, and time-series forecasting. Look for performance issues such as inability to capture long-range dependencies or overfitting on sequence data.",
+  "background": "RNNs were developed to address the limitations of feedforward networks in sequential data tasks. Issues like vanishing gradients led to the development of architectures like LSTM and GRU, which incorporate specialized gates to manage information flow across time steps efficiently.",
+  "algorithmic_innovation": "Key innovations include LSTM's memory cells and gates, GRU's simplified gating mechanism, gradient clipping to manage exploding gradients, and attention mechanisms for improved contextual processing over sequences.",
+  "implementation_guidance": "Initializations should be orthogonal to improve convergence. Use adaptive learning rates, like those in the Adam optimizer, and regularization techniques such as dropout to prevent overfitting. Configure gradient clipping for network stability during training.",
+  "design_ai_instructions": "Implement RNN variants like LSTM or GRU for better long-sequence handling. Use bidirectional RNNs for tasks needing context from both sequence ends. Apply attention mechanisms for tasks requiring selective focus within sequences. Avoid common pitfalls such as insufficient gradient control and inadequate initialization.",
+  "relevance_score": 0.95
+}

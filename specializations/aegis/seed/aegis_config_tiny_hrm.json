@@ -1,0 +1,17 @@
+{
+  "vocab_size": 50257,
+  "d_model": 64,
+  "high_level_layers": 1,
+  "low_level_layers": 1,
+  "n_heads": 4,
+  "batch_size": 16,
+  "num_workers": 8,
+  "population_size": 5,
+  "max_generations": 100,
+  "device": "cuda",
+  "use_amp": true,
+  "use_compile": false,
+  "max_parameters": 2098531723,
+  "max_memory_gb": 16.0,
+  "_comment": "Tiny HRM config for training with ~1K-10K examples. Model size: ~3.5M parameters instead of 29M"
+}

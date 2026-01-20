@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models for Sequential Decision-Making",
+  "source": "Research summary: 10. high-level planning in Hierarchical Reasoning Model research papers",
+  "design_insight": "Hierarchical reasoning involves breaking down complex tasks into a hierarchy of subtasks, improving interpretability and manageability",
+  "experimental_trigger_patterns": "Use hierarchical reasoning when dealing with complex, multi-step decision-making processes that benefit from task decomposition and abstraction.",
+  "background": "Hierarchical reasoning models have evolved to improve the scalability and efficiency of planning by leveraging abstraction and decomposition techniques, encompassing approaches such as Hierarchical Task Networks to streamline complex problem-solving.",
+  "algorithmic_innovation": "The Hierarchical Task Networks (HTN) framework and integration of reinforcement learning for adapting and refining hierarchical models.",
+  "implementation_guidance": "Utilize modular planning operators and methods, adopt rich state representations, leverage probabilistic frameworks, and incorporate machine learning algorithms for effective hierarchical model implementation.",
+  "design_ai_instructions": "Begin with simple tasks, incrementally add complexity; validate models against benchmark scenarios; use insights from domain experts to ensure alignment with real-world requirements; avoid bottlenecks by refining hierarchical structures.",
+  "relevance_score": 0.95
+}

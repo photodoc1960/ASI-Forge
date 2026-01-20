@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning Models in AI",
+  "source": "Research summary: 48. societal implications of Hierarchical Reasoning Models",
+  "design_insight": "Hierarchical Reasoning Models (HRMs) decompose complex problems into hierarchies of simpler sub-problems, enabling efficient and accurate decision-making processes across varied applications, from AI to organizational management.",
+  "experimental_trigger_patterns": "Apply HRMs when facing complex decision-making tasks that can benefit from hierarchical structuring, especially when tasks involve multi-level decision processes or require significant contextual understanding, such as urban planning or NLP.",
+  "background": "Historically, HRMs were developed to emulate human cognitive processes by structuring decisions in layers, improving both efficiency and outcome accuracy. They have been applied in contexts like urban planning and AI tasks that benefit from hierarchical analysis.",
+  "algorithmic_innovation": "HRMs utilize a decomposition of tasks into hierarchical layers processed sequentially, using techniques like greedy algorithms or recursive decomposition to manage sub-tasks effectively within a modular architecture.",
+  "implementation_guidance": "To implement HRMs, structure data inputs hierarchically. Use decomposition algorithms suited for the complexity of the problem. For model training, follow a stepwise learning approach from general to specific, and incorporate feedback at each layer to refine outputs continuously.",
+  "design_ai_instructions": "When implementing HRMs, ensure that models handle biases ethically, maintain adaptability through scalability, and optimize hierarchical structuring for the task's complexity. Avoid underfitting by enhancing data processing and manage potential biases at each hierarchical level.",
+  "relevance_score": 0.9
+}

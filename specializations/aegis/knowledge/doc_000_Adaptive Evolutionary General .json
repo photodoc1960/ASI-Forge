@@ -1,0 +1,11 @@
+{
+  "title": "Adaptive Evolutionary General Intelligence System (AEGIS)",
+  "source": "/mnt/d/aegis/RESEARCH_DOMAIN_SUMMARY.md",
+  "design_insight": "AEGIS combines hierarchical reasoning, supervised evolutionary architecture discovery, and multi-layer safety controls, integrating dual-timescale processing, adaptive computation time, curiosity-driven behavior, and safe neural architecture search.",
+  "experimental_trigger_patterns": "Symptoms of overfitting and poor generalization\nPerformance bottlenecks due to static architecture\nInstances of unexpected capability jumps requiring safety mechanisms\nChallenges in balancing autonomy and safety in agent behaviors",
+  "background": "Developed to advance AGI safety and adaptability, AEGIS leverages concepts like hierarchical reasoning models, neural architecture search, and information gap theory-driven curiosity systems.",
+  "algorithmic_innovation": "The framework employs dual-timescale hierarchical reasoning for adaptive planning and execution, combines genetic algorithms with safety gates for neural architecture evolution, and integrates multi-layer safety validation including anomaly detection and auto-freeze mechanisms.",
+  "implementation_guidance": "Use adaptive computation time for solving complex tasks to allocate resources efficiently.\nImplement LoRA fine-tuning for model efficiency and robustness on diverse datasets.\nIntegrate safe exploration mechanisms in evolution frameworks for new architecture search.\nApply validation protocols rigorously to ensure robustness and capture anomalies promptly.",
+  "design_ai_instructions": "implement: ['Hierarchical reasoning with separate planning and execution modules.', 'Anomaly detectors for real-time monitoring of AI system behavior.', 'Approval workflows for any autonomous decision-making process.']\navoid: ['Over-reliance on static models without adaptability.', 'Neglecting multi-tiered safety validation leading to undetected anomalies.', 'Allowing system to evolve without strict safety controls']",
+  "relevance_score": 0.95
+}

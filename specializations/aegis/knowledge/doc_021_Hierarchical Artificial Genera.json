@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Artificial General Intelligence Implementation",
+  "source": "Research summary: 21. \"best practices for implementing hierarchical AGI\"",
+  "design_insight": "The key architectural design of hierarchical AGI involves structuring the system into multiple layers of abstraction, emulating human cognitive processes for improved scalability, adaptability, and decision-making.",
+  "experimental_trigger_patterns": "Apply hierarchical AGI techniques when faced with complex tasks that require multi-level processing and reasoning, such as tasks involving the integration of diverse data types, or when improving the interpretability of decision-making processes.",
+  "background": "Hierarchical AGI approaches were developed to mirror the layered learning process observed in human cognition, enabling more scalable, robust, and contextually adaptable systems that can manage complexity across different abstractions.",
+  "algorithmic_innovation": "Key innovations include the use of hierarchical neural architectures like CNNs and DBNs, recursive neural networks for hierarchical data, hierarchical reinforcement learning (HRL), and attention mechanisms to enhance data processing and decision-making.",
+  "implementation_guidance": "Adopt HRL for tasks that benefit from temporal abstraction; use attention mechanisms to improve focus on relevant data aspects; ensure modular design for easier optimization and targeted processing; balance complexity across layers.",
+  "design_ai_instructions": "An AI implementing hierarchical AGI should: 1) Incorporate domain knowledge at different hierarchy levels; 2) Ensure balanced complexity among layers; 3) Use robust evaluation metrics to assess performance; 4) Integrate safety measures and ethical guidelines at each hierarchical level; 5) Avoid overburdening lower-level networks by clearly defining their function.",
+  "relevance_score": 0.95
+}

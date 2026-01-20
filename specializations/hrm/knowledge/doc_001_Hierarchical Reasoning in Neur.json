@@ -1,0 +1,11 @@
+{
+  "title": "Hierarchical Reasoning in Neural Networks",
+  "source": "Research summary: 1. foundational papers on Hierarchical Reasoning Model in neural networks",
+  "design_insight": "Integrating structured, multi-level reasoning through modular and dynamic neural architectures to improve decision-making akin to human cognitive processes.",
+  "experimental_trigger_patterns": "Apply when addressing complex sequential decision-making tasks that require breaking down into sub-problems, and when traditional models struggle with capturing hierarchical dependencies.",
+  "background": "Hierarchical reasoning models derive inspiration from human cognitive processes and have evolved through advances in modular networks, attention mechanisms, and cognitive architectures. These models aim to enhance decision-making by leveraging structured reasoning and have been shaped by foundational work in neural architectures and multi-task learning.",
+  "algorithmic_innovation": "Incorporation of modular networks with dynamic routing mechanisms, attention mechanisms like transformers, and graph neural networks to efficiently handle hierarchical information and improve task decomposition and multi-task learning.",
+  "implementation_guidance": "Use modular architectures with independent task-specific modules, integrate multi-head self-attention for capturing dependencies, apply GNNs for explicit hierarchical relation processing, and incorporate memory components for long-sequence reasoning. Ensure modules support decomposition and are interpretable.",
+  "design_ai_instructions": "Focus on modular architectures that allow for hierarchical processing. Utilize attention mechanisms for dynamic input emphasis, implement GNNs for structural context, and ensure interpretability. Avoid underfitting by ensuring comprehensive data processing and address distributed processing bottlenecks. Ensure model architectures maintain flexibility and adaptability across various tasks.",
+  "relevance_score": 0.95
+}
