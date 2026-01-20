@@ -642,9 +642,17 @@ def select_source_file(file_path: str) -> Dict[str, Any]:
 
 @function_tool
 def run_training_script(name: str, script_path: str) -> Dict[str, Any]:
-    """Run the training script and return its output."""
+    """Run the training script and return its output.
+
+    The script receives the actual source file path (not the program name)
+    as its first argument, since evaluation scripts need to know where
+    the evolved code is located.
+    """
+    # Get the actual source file path - this is where the evolved code lives
+    source_file_path = Config.SOURCE_FILE
+
     try:
-        subprocess.run(['bash', script_path, name],
+        subprocess.run(['bash', script_path, source_file_path],
                       capture_output=True,
                       text=True,
                       check=True)
