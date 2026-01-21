@@ -562,6 +562,9 @@ IMPORT_RESULT=$(python3 -c "
 import sys
 import importlib.util
 
+# Add codebase directory to path so local modules can be imported
+sys.path.insert(0, '$CODEBASE_DIR')
+
 try:
     spec = importlib.util.spec_from_file_location('evolved_module', '$EVOLVED_CODE')
     module = importlib.util.module_from_spec(spec)

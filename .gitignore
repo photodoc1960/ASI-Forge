@@ -66,3 +66,7 @@ pipeline/hrm_validation.txt
 specializations/*/debug/
 specializations/*/results/
 specializations/*/pool/
+specializations/*/.backups/
+
+# Runtime data
+database/candidate_storage.json
