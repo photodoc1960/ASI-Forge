@@ -73,10 +73,29 @@ cd "$HRM_DIR"
 
 IMPORT_RESULT=$(python3 -c "
 import sys
+import os
 import importlib.util
 
 # Add HRM directory to path so local modules (common, etc.) can be imported
 sys.path.insert(0, '$HRM_DIR')
+
+# Find local packages/modules in HRM that might conflict with pip packages
+# and remove them from sys.modules cache to ensure local versions are used
+codebase_modules = set()
+for item in os.listdir('$HRM_DIR'):
+    item_path = os.path.join('$HRM_DIR', item)
+    if os.path.isdir(item_path) and not item.startswith('.') and not item.startswith('_'):
+        if os.path.exists(os.path.join(item_path, '__init__.py')):
+            codebase_modules.add(item)
+    elif item.endswith('.py') and not item.startswith('_'):
+        codebase_modules.add(item[:-3])
+
+# Remove conflicting modules and their submodules from cache
+for mod_name in list(sys.modules.keys()):
+    for codebase_mod in codebase_modules:
+        if mod_name == codebase_mod or mod_name.startswith(codebase_mod + '.'):
+            del sys.modules[mod_name]
+            break
 
 try:
     spec = importlib.util.spec_from_file_location('evolved_module', '$EVOLVED_CODE')
