@@ -52,7 +52,35 @@ echo "Testing import..."
 cd /mnt/d/aegis
 python3 -c "
 import sys
+import os
+import importlib.util
+
+# Add AEGIS directory AND the evolved file's directory to path
+evolved_file_dir = os.path.dirname('$EVOLVED_CODE')
+sys.path.insert(0, evolved_file_dir)
 sys.path.insert(0, '/mnt/d/aegis')
+
+# Find local modules in both directories that might conflict with pip packages
+# and remove them from sys.modules cache to ensure local versions are used
+search_dirs = ['/mnt/d/aegis', evolved_file_dir]
+local_modules = set()
+for search_dir in search_dirs:
+    if not os.path.isdir(search_dir):
+        continue
+    for item in os.listdir(search_dir):
+        item_path = os.path.join(search_dir, item)
+        if os.path.isdir(item_path) and not item.startswith('.') and not item.startswith('_'):
+            if os.path.exists(os.path.join(item_path, '__init__.py')):
+                local_modules.add(item)
+        elif item.endswith('.py') and not item.startswith('_'):
+            local_modules.add(item[:-3])
+
+# Remove conflicting modules and their submodules from cache
+for mod_name in list(sys.modules.keys()):
+    for local_mod in local_modules:
+        if mod_name == local_mod or mod_name.startswith(local_mod + '.'):
+            del sys.modules[mod_name]
+            break
 
 # Try importing the evolved module
 try:
@@ -111,11 +139,38 @@ echo "Testing instantiation..."
 cd /mnt/d/aegis
 python3 << PYEOF >> "$METRICS_FILE" 2>>"$DEBUG_FILE"
 import sys
+import os
+import importlib.util
+
+# Add AEGIS directory AND the evolved file's directory to path
+evolved_file_dir = os.path.dirname('$EVOLVED_CODE')
+sys.path.insert(0, evolved_file_dir)
 sys.path.insert(0, '/mnt/d/aegis')
+
+# Find local modules in both directories that might conflict with pip packages
+# and remove them from sys.modules cache to ensure local versions are used
+search_dirs = ['/mnt/d/aegis', evolved_file_dir]
+local_modules = set()
+for search_dir in search_dirs:
+    if not os.path.isdir(search_dir):
+        continue
+    for item in os.listdir(search_dir):
+        item_path = os.path.join(search_dir, item)
+        if os.path.isdir(item_path) and not item.startswith('.') and not item.startswith('_'):
+            if os.path.exists(os.path.join(item_path, '__init__.py')):
+                local_modules.add(item)
+        elif item.endswith('.py') and not item.startswith('_'):
+            local_modules.add(item[:-3])
+
+# Remove conflicting modules and their submodules from cache
+for mod_name in list(sys.modules.keys()):
+    for local_mod in local_modules:
+        if mod_name == local_mod or mod_name.startswith(local_mod + '.'):
+            del sys.modules[mod_name]
+            break
 
 try:
     # Try importing from the module
-    import importlib.util
     spec = importlib.util.spec_from_file_location('evolved', '$EVOLVED_CODE')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
