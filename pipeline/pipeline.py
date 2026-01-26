@@ -27,6 +27,7 @@ from database import program_sample, update
 from eval import evaluation
 from evolve import evolve
 from config import Config
+from tools import rollback_source_file
 from utils.agent_logger import end_pipeline, log_error, log_info, log_step, log_warning, start_pipeline
 
 # Initialize OpenAI client
@@ -193,6 +194,7 @@ async def run_single_experiment() -> bool:
         name, motivation = await evolve(context)
         if name == "Failed":
             log_error("Program evolution failed")
+            rollback_source_file()  # Restore original code
             end_pipeline(False, "Evolution failed")
             return False
         log_info(f"Program evolution successful, generated program: {name}")
@@ -203,6 +205,7 @@ async def run_single_experiment() -> bool:
         success = await evaluation(name, motivation)
         if not success:
             log_error(f"Program {name} evaluation failed")
+            rollback_source_file()  # Restore original code to prevent contamination
             end_pipeline(False, "Evaluation failed")
             return False
         log_info(f"Program {name} evaluation successful")
@@ -234,10 +237,12 @@ async def run_single_experiment() -> bool:
 
     except KeyboardInterrupt:
         log_warning("User interrupted experiment")
+        rollback_source_file()  # Restore original code
         end_pipeline(False, "User interrupted experiment")
         return False
     except Exception as e:
         log_error(f"Experiment pipeline unexpected error: {str(e)}")
+        rollback_source_file()  # Restore original code
         end_pipeline(False, f"Unexpected error: {str(e)}")
         return False
 

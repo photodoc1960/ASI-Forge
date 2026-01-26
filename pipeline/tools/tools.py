@@ -354,6 +354,29 @@ def get_version_manager() -> CodeVersionManager:
     return _version_manager
 
 
+def rollback_source_file() -> bool:
+    """
+    Rollback the current source file to its most recent backup.
+
+    This should be called when an experiment fails to restore the original
+    code and prevent contamination of future experiments.
+
+    Returns:
+        True if rollback succeeded, False otherwise.
+    """
+    source_file = Config.get_current_source_file()
+    if not source_file:
+        return False
+
+    success = _version_manager.rollback(source_file, -1)
+    if success:
+        print(f"[ROLLBACK] Restored {source_file} to previous version")
+    else:
+        print(f"[ROLLBACK] Warning: Could not restore {source_file} (no backup found)")
+
+    return success
+
+
 # ============================================================================
 # Tool Functions
 # ============================================================================
