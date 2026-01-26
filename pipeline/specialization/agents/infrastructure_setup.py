@@ -563,24 +563,32 @@ import sys
 import os
 import importlib.util
 
-# Add codebase directory to path so local modules can be imported
+# Add codebase directory AND the evolved file's directory to path
+# The evolved file's directory is needed for sibling imports (e.g., 'from common import X'
+# when common.py is in the same directory as the evolved file)
+evolved_file_dir = os.path.dirname('$EVOLVED_CODE')
+sys.path.insert(0, evolved_file_dir)
 sys.path.insert(0, '$CODEBASE_DIR')
 
-# Find local packages/modules in codebase that might conflict with pip packages
+# Find local modules in both directories that might conflict with pip packages
 # and remove them from sys.modules cache to ensure local versions are used
-codebase_modules = set()
-for item in os.listdir('$CODEBASE_DIR'):
-    item_path = os.path.join('$CODEBASE_DIR', item)
-    if os.path.isdir(item_path) and not item.startswith('.') and not item.startswith('_'):
-        if os.path.exists(os.path.join(item_path, '__init__.py')):
-            codebase_modules.add(item)
-    elif item.endswith('.py') and not item.startswith('_'):
-        codebase_modules.add(item[:-3])
+search_dirs = ['$CODEBASE_DIR', evolved_file_dir]
+local_modules = set()
+for search_dir in search_dirs:
+    if not os.path.isdir(search_dir):
+        continue
+    for item in os.listdir(search_dir):
+        item_path = os.path.join(search_dir, item)
+        if os.path.isdir(item_path) and not item.startswith('.') and not item.startswith('_'):
+            if os.path.exists(os.path.join(item_path, '__init__.py')):
+                local_modules.add(item)
+        elif item.endswith('.py') and not item.startswith('_'):
+            local_modules.add(item[:-3])
 
 # Remove conflicting modules and their submodules from cache
 for mod_name in list(sys.modules.keys()):
-    for codebase_mod in codebase_modules:
-        if mod_name == codebase_mod or mod_name.startswith(codebase_mod + '.'):
+    for local_mod in local_modules:
+        if mod_name == local_mod or mod_name.startswith(local_mod + '.'):
             del sys.modules[mod_name]
             break
 
