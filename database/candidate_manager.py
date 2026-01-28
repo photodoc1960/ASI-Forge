@@ -646,10 +646,71 @@ class CandidateManager:
 
 # Global candidate manager instance
 _candidate_manager = None
+_current_collection = None
 
-def get_candidate_manager() -> CandidateManager:
-    """Get global candidate manager instance."""
-    global _candidate_manager
+def _get_storage_file_for_collection(collection_name: str) -> str:
+    """Generate storage file path for a specific collection."""
+    if collection_name:
+        # Use collection-specific storage file
+        return f"candidate_storage_{collection_name}.json"
+    return "candidate_storage.json"
+
+def get_candidate_manager(collection_name: str = None) -> CandidateManager:
+    """Get global candidate manager instance for a specific collection.
+
+    Args:
+        collection_name: The MongoDB collection name. If provided and different
+                        from the current collection, switches the storage file.
+    """
+    global _candidate_manager, _current_collection
+
     if _candidate_manager is None:
-        _candidate_manager = CandidateManager()
+        storage_file = _get_storage_file_for_collection(collection_name)
+        _candidate_manager = CandidateManager(storage_file=storage_file)
+        _current_collection = collection_name
+    elif collection_name and collection_name != _current_collection:
+        # Collection changed, switch storage file
+        switch_candidate_storage(collection_name)
+
     return _candidate_manager
+
+def switch_candidate_storage(collection_name: str) -> bool:
+    """Switch candidate storage to a collection-specific file.
+
+    This should be called when the MongoDB collection is switched to ensure
+    candidates are isolated per-collection.
+
+    Args:
+        collection_name: The new collection name
+
+    Returns:
+        bool: True if switch was successful
+    """
+    global _candidate_manager, _current_collection
+
+    if _candidate_manager is None:
+        # No manager yet, just set the collection for future initialization
+        _current_collection = collection_name
+        return True
+
+    try:
+        new_storage_file = _get_storage_file_for_collection(collection_name)
+
+        # Save current candidates before switching (if any)
+        if _current_collection:
+            _candidate_manager._save_candidates()
+
+        # Update storage file and reload
+        _candidate_manager.storage_file = new_storage_file
+        _candidate_manager._load_candidates()
+        _current_collection = collection_name
+
+        _candidate_manager.logger.info(
+            f"Switched candidate storage to: {new_storage_file} "
+            f"({len(_candidate_manager.candidates)} candidates loaded)"
+        )
+        return True
+
+    except Exception as e:
+        logging.error(f"Failed to switch candidate storage: {e}")
+        return False

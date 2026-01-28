@@ -18,6 +18,7 @@ from pydantic import BaseModel, Field
 import uvicorn
 from mongodb_database import MongoDatabase
 from util import DataElement
+from candidate_manager import switch_candidate_storage
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -541,6 +542,9 @@ async def switch_collection(request: SwitchCollectionRequest):
             database_name="myapp",
             collection_name=new_collection
         )
+
+        # Also switch candidate storage to collection-specific file
+        switch_candidate_storage(new_collection)
 
         logger.info(f"Switched to collection: {new_collection}")
         return ApiResponse(
